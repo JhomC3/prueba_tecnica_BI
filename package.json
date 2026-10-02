@@ -1,0 +1,22 @@
+{
+  "name": "finora-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Base web funcional Finora: Resumen, Caso CRO, Caso CFO y Explorar. Contenido en src/content/*.json.",
+  "scripts": {
+    "dev": "vite",
+    "predev": "node scripts/sync-content.mjs",
+    "build": "vite build",
+    "prebuild": "node scripts/sync-content.mjs",
+    "sync:content": "node scripts/sync-content.mjs",
+    "preview": "vite preview --port 4173",
+    "test": "node --test tests/web/",
+    "check:coherence": "node scripts/check-coherence.mjs",
+    "export:web": "python3 scripts/export_web.py --fuente . --dest ."
+  },
+  "devDependencies": {
+    "vite": "^8.3.2"
+  },
+  "packageManager": "pnpm@12.6.0"
+}

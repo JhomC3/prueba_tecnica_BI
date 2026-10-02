@@ -1,0 +1,70 @@
+{
+  "titulo": "Finora: del volumen al avance y del pago a sus causas",
+  "descripcion": "Finora necesita entender qué cambia para decidir. En adquisición, distinguir volumen de avance; en revenue, distinguir suscripción de decisiones comerciales. Dos casos con el mismo método: enfocar, comprobar, localizar, explicar, actuar y evaluar.",
+  "metodo_breve": "Enfocar → comprobar → localizar → explicar → actuar → evaluar.",
+  "casos": [
+    {
+      "caso_id": "cro",
+      "titulo": "Caso CRO — crecimiento del funnel comercial",
+      "decisor": "CRO",
+      "preocupacion": "Aumentó el volumen en las primeras etapas, sobre todo en New, pero los clientes nuevos no crecen al mismo ritmo. Marketing trae más demanda, Sales reporta menor calidad y otros apuntan a atención lenta o a etapas post-SQL.",
+      "pregunta_priorizada": "¿La tasa de conversión de New a Won aumentó o disminuyó después del aumento de New?",
+      "resultado": "New pasó de 133 a 179 entradas (+34,6%); la conversión a 30 días bajó de 21,1% a 6,7%, con caídas en Demo → Proposal y Proposal → Won; la carga por persona y la demora subieron sin ampliar el personal.",
+      "accion": "Reforzar capacidad en Demo y Proposal (responsable propuesto: Sales) y evaluar en octubre–noviembre de 2026."
+    },
+    {
+      "caso_id": "cfo",
+      "titulo": "Caso CFO — cambios del MRR y descuentos",
+      "decisor": "CFO",
+      "preocupacion": "Si un cliente pagaba 100 y ahora paga 80, ¿contrajo 20 o recibió un descuento? ¿Y cuando desaparezca el descuento, eso cuenta como expansión? ¿Cuánto revenue se deja de capturar por decisiones comerciales?",
+      "pregunta_priorizada": "¿La política de descuentos mejora o deteriora el ingreso recurrente neto y el valor económico de los clientes durante el horizonte evaluado?",
+      "resultado": "El MRR al cierre sube 500 UM con política, pero el ingreso acumulado queda 1.500 UM por debajo en 9 meses; 30 UM al mes durante 3 meses equilibra el resultado.",
+      "accion": "Ajustar monto o duración del descuento y probar la oferta con un piloto comparable."
+    }
+  ],
+  "nota_comun": "Los archivos recibidos (cliente + mes + monto, industria y gasto agregado) no identifican las causas pedidas. Las demostraciones usan modelos sintéticos independientes; no hay intervención ejecutada ni impacto real medido.",
+  "metodo": {
+    "titulo": "Método y uso de IA",
+    "principio": "Mismo método en ambos casos, distinta aplicación: en CRO, cohortes por primera entrada a New con reloj común de 30 días; en CFO, separación de bruto, descuento, neto y pago con referencia pareada y corte frente a acumulado.",
+    "candidato": "El candidato priorizó las preguntas, eligió escenarios y alcance, corrigió densidad y conexiones, y revisó cada entrega. Las decisiones editoriales (puentes entre análisis, selección de figuras, formato de cierre) son propuestas pendientes de su revisión.",
+    "ia": "La IA apoyó organización del contenido, implementación web, exportación de figuras y pruebas, según las bitácoras del worktree. Usar IA en el desarrollo y disponer de un asistente integrado en la web son hechos distintos: esta web no integra ningún asistente.",
+    "episodios": [
+      {
+        "titulo": "Cohortes y reloj únicos en CRO",
+        "detalle": "Las comprobaciones exigían las mismas cohortes por primera entrada a New y el mismo reloj desde New en todo el recorrido; la exportación verifica conciliación de cohortes y relojes antes de publicar cada figura."
+      },
+      {
+        "titulo": "Pago distinto de MRR en CFO",
+        "detalle": "El modelo separa valor recurrente (bruto − descuento = neto) del cobro (pendientes y cargos no recurrentes); la exportación comprueba la identidad en todos los meses y la conciliación de movimientos."
+      },
+      {
+        "titulo": "Fuentes frente a derivadas",
+        "detalle": "La revisión detectó tablas derivadas presentadas como fuentes (ganados, componentes_mes, movimientos); ahora llevan etiqueta «Vista derivada» con su explicación, verificada por el gate de coherencia."
+      }
+    ],
+    "controles": "Fuentes preservadas sin modificar; claves, vigencias y conciliaciones comprobadas; figuras por copia o exportación controlada; hashes que prueban integridad, no significado comercial. Revisión humana pendiente."
+  },
+  "entrega": {
+    "titulo": "Entrega y respaldo",
+    "nota_corta": "docs/nota-corta.md",
+    "soportes": [
+      {"archivo": "docs/soportes/02_modelo_cro.ipynb", "descripcion": "Notebook CRO vigente con recorrido, figuras y cierre."},
+      {"archivo": "docs/soportes/03_modelo_cfo.ipynb", "descripcion": "Notebook CFO vigente con modelo, escenario y cierre."},
+      {"archivo": "docs/soportes/modelo-cro-demo.md", "descripcion": "Explicación del modelo CRO y sus definiciones."},
+      {"archivo": "docs/soportes/modelo-cfo-demo.md", "descripcion": "Explicación del modelo CFO y sus definiciones."},
+      {"archivo": "docs/soportes/puente.sql", "descripcion": "Puente CFO por cliente, mes y grupo (vista SQL)."},
+      {"archivo": "docs/soportes/coherencia.sql", "descripcion": "Controles SQL de coherencia CRO."},
+      {"archivo": "docs/soportes/validacion-cro.json", "descripcion": "Validaciones automatizadas del caso CRO."},
+      {"archivo": "docs/soportes/validacion-cfo.json", "descripcion": "Validaciones automatizadas del caso CFO."}
+    ],
+    "videos": "Guiones ejecutivos y de proceso disponibles en docs (máximo 5 minutos cada uno). Sin grabar, sin publicar, sin enlaces de reproducción: un guion no es un video.",
+    "estados": [
+      {"estado": "Análisis local", "situacion": "completado en notebooks finales"},
+      {"estado": "Presentación local", "situacion": "revisable en este servidor"},
+      {"estado": "Revisión humana", "situacion": "pendiente"},
+      {"estado": "Web publicada", "situacion": "no publicada"},
+      {"estado": "Videos grabados", "situacion": "no grabados"},
+      {"estado": "Entrega enviada", "situacion": "no enviada"}
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "fecha_utc": "2026-09-30T22:48:37.246313+00:00",
+  "version_generador": 2,
+  "pruebas": {
+    "comando": ".venv/bin/python -m unittest discover -s tests",
+    "ejecutadas": 13,
+    "resultado": "OK"
+  },
+  "csvs": 57,
+  "bases": 3,
+  "tablas_negocio": 4,
+  "catalogos_auxiliares": 1,
+  "familias_metricas": 12,
+  "originales_intactos": true,
+  "csv_sqlite_valores_iguales": true,
+  "segmentos_conciliados": true,
+  "hashes_verificados": true,
+  "graficas_nuevas": false,
+  "controles_por_escenario": {
+    "referencia": {
+      "relaciones": 0,
+      "interacciones_fuera_visita": 0,
+      "fechas_etapas": 0,
+      "pagos_fuera_historia": 0,
+      "calidad": 0,
+      "captacion": 0,
+      "producto_sin_etapas": 0,
+      "historia_previa": 0,
+      "estado_etapa": 0,
+      "entrada_inicial": 0,
+      "continuidad": 0
+    },
+    "conversion": {
+      "relaciones": 0,
+      "interacciones_fuera_visita": 0,
+      "fechas_etapas": 0,
+      "pagos_fuera_historia": 0,
+      "calidad": 0,
+      "captacion": 0,
+      "producto_sin_etapas": 0,
+      "historia_previa": 0,
+      "estado_etapa": 0,
+      "entrada_inicial": 0,
+      "continuidad": 0
+    },
+    "demora": {
+      "relaciones": 0,
+      "interacciones_fuera_visita": 0,
+      "fechas_etapas": 0,
+      "pagos_fuera_historia": 0,
+      "calidad": 0,
+      "captacion": 0,
+      "producto_sin_etapas": 0,
+      "historia_previa": 0,
+      "estado_etapa": 0,
+      "entrada_inicial": 0,
+      "continuidad": 0
+    }
+  },
+  "limite": "Demostración sintética; interpretación y revisión humana pendientes",
+  "notebook": {
+    "archivo": "notebooks/02_modelo_cro.ipynb",
+    "celdas_ejecutadas": 9,
+    "errores": 0,
+    "lectura": "tablas explicadas y primera pregunta; sin volcado masivo"
+  }
+}

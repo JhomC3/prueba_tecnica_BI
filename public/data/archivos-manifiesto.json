@@ -1,0 +1,151 @@
+{
+  "fecha": "2026-10-02",
+  "nota": "Originales: archivos recibidos descritos, sin descarga en la web (bases completas no copiadas). Sintéticos: copias exactas con descarga. Derivados: figuras publicadas con biblioteca Plotly local compartida (charts/plotly.min.js v4.1.1); 01_new_tendencia.html lleva la biblioteca embebida (artefacto histórico referenciado en respaldo). Detalle por historia en cada manifiesto.",
+  "originales": [
+    {
+      "archivo": "inputs/Transactions.csv",
+      "filas": 66674,
+      "descripcion": "Importes mensuales por cliente (ID, month, amount).",
+      "descarga": null,
+      "motivo_sin_descarga": "Base completa; la presentación la describe sin copiarla."
+    },
+    {
+      "archivo": "inputs/Industry.csv",
+      "filas": 1962,
+      "descripcion": "Cliente e industria (ID, Industria).",
+      "descarga": null,
+      "motivo_sin_descarga": "Se describe sin copiarla; la correspondencia de IDs está por validar."
+    },
+    {
+      "archivo": "inputs/S&M_spend.csv",
+      "filas": 34,
+      "descripcion": "Gasto mensual de S&M por categoría (34 meses).",
+      "descarga": null,
+      "motivo_sin_descarga": "Se describe sin copiarla; moneda y escala sin confirmar."
+    }
+  ],
+  "sinteticos": [
+    {
+      "ruta": "data/archivos/cfo/con_descuento/clientes.csv",
+      "sha256": "af6101b67778e1f00bb83fd981fe43d6a5da32a5182becddf645a8238e638717",
+      "bytes": 4588
+    },
+    {
+      "ruta": "data/archivos/cfo/con_descuento/descuentos.csv",
+      "sha256": "90363bda005d452a70d90256423e05a816c162f3a0fcb27d8a513ae3c202584b",
+      "bytes": 6274
+    },
+    {
+      "ruta": "data/archivos/cfo/con_descuento/precios.csv",
+      "sha256": "b8bb561f6d49ce777db115477b0448d7120d8391660d9dc191c06cd3f489577b",
+      "bytes": 7816
+    },
+    {
+      "ruta": "data/archivos/cfo/con_descuento/suscripciones.csv",
+      "sha256": "cffe25aa7ba2ba01dbfe6cfa96a0ab8866628cfcdb95ed6598ad08d473e7af45",
+      "bytes": 5124
+    },
+    {
+      "ruta": "data/archivos/cfo/sin_descuento/descuentos.csv",
+      "sha256": "7a270ec1a8358281073eb0f6f66366689551933be41b28d0dfb0ec9ca99dd2c1",
+      "bytes": 124
+    },
+    {
+      "ruta": "data/archivos/cro/dim_capacidad.csv",
+      "sha256": "f1709dd392937fc5c27efd44a38ffaf7161572c0c45831585f6ed7a000566a3a",
+      "bytes": 451
+    },
+    {
+      "ruta": "data/archivos/cro/dim_etapas.csv",
+      "sha256": "864220672be6ee1f28eb330473ba8eb545fe5c07980d584e8aaa656e50633c36",
+      "bytes": 128
+    },
+    {
+      "ruta": "data/archivos/cro/puntuaciones_leads.csv",
+      "sha256": "524f7cf7172e37f57d828007de7818a2074074bc43029b0b64e790bd3ff3aa25",
+      "bytes": 17189
+    }
+  ],
+  "derivados": [
+    {
+      "ruta": "charts/01_new_tendencia.html",
+      "sha256": "906401595faa02d4d6952aa9b79ad7703a0f88b108fee82daf630b585c93bd4b",
+      "bytes": 4824928
+    },
+    {
+      "ruta": "charts/cfo/10_evolucion_principal.html",
+      "sha256": "56fb096a80e9c047480c7e3bcecedef72e66e506ce647ac37bfa441932a2085e",
+      "bytes": 9541
+    },
+    {
+      "ruta": "charts/cfo/12_recuperacion_foco.html",
+      "sha256": "c399c08287ca53469acdb83f6ff503a55801842d7145fa88be8e4c90b9b8efc5",
+      "bytes": 9247
+    },
+    {
+      "ruta": "charts/cro-story/c01-new-canal.html",
+      "sha256": "88c7476b217d8b44e9b5d64a47907ac41b5290f04427309ca63a201e2ecf2b21",
+      "bytes": 10533
+    },
+    {
+      "ruta": "charts/cro-story/c01-new-total.html",
+      "sha256": "156d3318ddb7e8959da2b9cc80f310c6812b299d360d96856954185632d20bc2",
+      "bytes": 9128
+    },
+    {
+      "ruta": "charts/cro-story/c02-conversion-canal.html",
+      "sha256": "8391a93b0b1c1f8d2455f24e9688555553a416b11266506a11d057518ed120f7",
+      "bytes": 11048
+    },
+    {
+      "ruta": "charts/cro-story/c02-conversion-total.html",
+      "sha256": "540d77f8a385cbe9e39602fb3ee5a9f799b55a7e1fba258b010bb3958eecfff7",
+      "bytes": 9327
+    },
+    {
+      "ruta": "charts/cro-story/c02-mediana.html",
+      "sha256": "df75ad1923a16dd47745e1f036d84b707e05484d1f908cb8954ef47041631dec",
+      "bytes": 8440
+    },
+    {
+      "ruta": "charts/cro-story/c03-calidad-canal.html",
+      "sha256": "f494ab9b5a318683bc5da7f77e73933055a599e52d7bcfbef80ca5ca955a7261",
+      "bytes": 9575
+    },
+    {
+      "ruta": "charts/cro-story/c03-calidad-global.html",
+      "sha256": "272d20c3bb3f06d9efaf2bb9c8cb4edd4742a2d05c793cc7b96ee9e006b13f91",
+      "bytes": 8416
+    },
+    {
+      "ruta": "charts/cro-story/c04-demo-canal.html",
+      "sha256": "c093570fa0c4bfbb54bec591a37f7008e5acecfd4f6c2f0fe375e8e6d5e83351",
+      "bytes": 10961
+    },
+    {
+      "ruta": "charts/cro-story/c04-niveles-global.html",
+      "sha256": "76bd4c810cb85dd9a128a7f4af24b00e325169e8bc1443a2e2bd9a45f87c52eb",
+      "bytes": 13833
+    },
+    {
+      "ruta": "charts/cro-story/c04-proposal-canal.html",
+      "sha256": "1734e1299813235b38e89905e8f5264673b348474e47d496d142ab3afffc04a6",
+      "bytes": 10871
+    },
+    {
+      "ruta": "charts/cro-story/c05-carga.html",
+      "sha256": "c25311849956f0ecf700784c6f0fa857c8c14d41ee04d774d0d656e08c8b49cd",
+      "bytes": 9470
+    },
+    {
+      "ruta": "charts/cro-story/c05-demora.html",
+      "sha256": "4fab50c7c1147a320297305d3f9f1374fb656b2f30c4540e9fc7066ba50276d5",
+      "bytes": 9500
+    },
+    {
+      "ruta": "charts/plotly.min.js",
+      "sha256": "3b6e15d45dbb7fca5bd2094291e961ddc5472cd887009e6009a56dab668d721f",
+      "bytes": 4815814
+    }
+  ]
+}

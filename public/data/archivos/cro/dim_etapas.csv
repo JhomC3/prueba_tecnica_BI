@@ -1,0 +1,8 @@
+id_etapa,orden,siguiente
+New,1,Working
+Working,2,Engaged
+Engaged,3,SQL
+SQL,4,Demo
+Demo,5,Proposal
+Proposal,6,Won
+Won,7,

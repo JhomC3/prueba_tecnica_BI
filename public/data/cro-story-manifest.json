@@ -1,0 +1,151 @@
+{
+  "revision": "notebook-final-987c30a9",
+  "fecha": "2026-10-02",
+  "escenario": "referencia (datos sintéticos)",
+  "poblacion": "cuentas que entraron por New; SQL directo y producto fuera de New→Won",
+  "fuentes": {
+    "notebook": {
+      "archivo": "notebooks/02_modelo_cro.ipynb",
+      "sha256": "987c30a9ccc181c30143229c4d584c2a7fdffdac1ca92c8aa505c58d6c8f711d"
+    },
+    "demanda_csv_sha256": "9591a5cb8c71e10776c01186b427cfae5daab59f7fbf36926b09870f5932d2c9",
+    "cohortes_csv_sha256": "88de2860a92a87c38fdf3fbcb3f3068b87d5754926933625f1d62574600cd9e3",
+    "etapas_new_sha256": "142935ab4a5fc0f0e53bcd30a1f915cb59fd816cb61191adf46d8d8143465172",
+    "atencion_focos_new_sha256": "b552f9a8d5b4edcf6283f0a5789f62ec1fa725a5006ac287fe8492fc1efe5665",
+    "dim_capacidad_sha256": "f1709dd392937fc5c27efd44a38ffaf7161572c0c45831585f6ed7a000566a3a",
+    "control_coherencia": {
+      "cohortes_conciliadas": 84,
+      "resultado": "Won y producto de tasas coinciden con 3.2; reloj y cohortes únicos."
+    }
+  },
+  "validaciones": {
+    "celdas": 53,
+    "plotly": 12,
+    "new_abril": 133,
+    "new_mayo": 179,
+    "conv_abril": 21.1,
+    "conv_mayo": 6.7,
+    "demo_abril": 76.2,
+    "demo_mayo": 61.8,
+    "proposal_abril": 58.3,
+    "proposal_mayo": 19.0,
+    "cohortes_conciliadas": 84
+  },
+  "figuras": [
+    {
+      "bloque": "C01-total",
+      "archivo": "charts/cro-story/c01-new-total.html",
+      "sha256": "a5af12b6ffcc0983c69ffd350b6bef29eb73568b11f6e48c498d039255b1927a",
+      "cell": 18,
+      "output": 0,
+      "titulo_original": "¿Cuánto aumentó New?",
+      "titulo_web": "¿Cuánto aumentó New?"
+    },
+    {
+      "bloque": "C01-canal",
+      "archivo": "charts/cro-story/c01-new-canal.html",
+      "sha256": "3ae8324244295fde20b704d3077c056fa6748ae498a39aae757153861d105652",
+      "cell": 23,
+      "output": 0,
+      "titulo_original": "New por canal",
+      "titulo_web": "New por canal"
+    },
+    {
+      "bloque": "C02-mediana",
+      "archivo": "charts/cro-story/c02-mediana.html",
+      "sha256": "1ae82ee0b2fa34543287add5cc4580dc6ea4b05c655a6fb94c9fdc41a51cec97",
+      "cell": 29,
+      "output": 0,
+      "titulo_original": "Tiempo de New a Won por mes de entrada · 2026",
+      "titulo_web": "Tiempo de New a Won por mes de entrada · 2026"
+    },
+    {
+      "bloque": "C02-conv-total",
+      "archivo": "charts/cro-story/c02-conversion-total.html",
+      "sha256": "6825e804229d9368690a5697e63f90bd31d2539d0dc0f2f770ea7bd5929936c2",
+      "cell": 31,
+      "output": 0,
+      "titulo_original": "¿Qué porcentaje de New llegó a Won en 30 días?",
+      "titulo_web": "Porcentaje de New a Won en 30 días"
+    },
+    {
+      "bloque": "C02-conv-canal",
+      "archivo": "charts/cro-story/c02-conversion-canal.html",
+      "sha256": "d3901b1a2f110cb25bdaaa41ebed8262672f93df06ddfaf322173195a9c40cc7",
+      "cell": 33,
+      "output": 0,
+      "titulo_original": "New → Won en 30 días, por canal",
+      "titulo_web": "New → Won en 30 días, por canal"
+    },
+    {
+      "bloque": "C03-global",
+      "archivo": "charts/cro-story/c03-calidad-global.html",
+      "sha256": "444e9a642444ad0cd522a66320a4ef5bcc87516cb43ad4d5250f38042a907947",
+      "cell": 37,
+      "output": 0,
+      "titulo_original": "Puntuación media de los New · 2026",
+      "titulo_web": "Puntuación media de los New · 2026"
+    },
+    {
+      "bloque": "C03-canal",
+      "archivo": "charts/cro-story/c03-calidad-canal.html",
+      "sha256": "d91591b0c93b8328c654a3ce186d2c2b7af5d63af72c128cdc01f290be8fc7b5",
+      "cell": 37,
+      "output": 1,
+      "titulo_original": "Puntuación media de los New por canal · 2026",
+      "titulo_web": "Puntuación media de los New por canal · 2026"
+    },
+    {
+      "bloque": "C04-global",
+      "archivo": "charts/cro-story/c04-niveles-global.html",
+      "sha256": "f6f6d1df21a33dd55bbd26483199db8fd1803a969107727ff92673650b9d4efb",
+      "cell": 40,
+      "output": 0,
+      "titulo_original": "Conversión por nivel · 30 días desde New",
+      "titulo_web": "Conversión por nivel · 30 días desde New"
+    },
+    {
+      "bloque": "C04-canales",
+      "archivo": "charts/cro-story/c04-proposal-canal.html",
+      "sha256": "65e390d15ee583880d525a0a39502d8d17458b0d9006fc9491fead7339026504",
+      "cell": 44,
+      "output": 0,
+      "titulo_original": "Proposal → Won por canal",
+      "titulo_web": "Proposal → Won por canal"
+    },
+    {
+      "bloque": "C04-canales-demo",
+      "archivo": "charts/cro-story/c04-demo-canal.html",
+      "sha256": "b508116072737b518037ec49e6486c24c493934f1ab0ed227c108db0acccf4a0",
+      "cell": 44,
+      "output": 2,
+      "titulo_original": "Demo → Proposal por canal",
+      "titulo_web": "Demo → Proposal por canal"
+    },
+    {
+      "bloque": "C05-carga",
+      "archivo": "charts/cro-story/c05-carga.html",
+      "sha256": "6f9f6387cc8bb9d25a55aed91537ab942f6e45352706dfb9f42837d241c7cae6",
+      "cell": 46,
+      "output": 0,
+      "titulo_original": "Cuentas por persona disponible",
+      "titulo_web": "Cuentas por persona disponible"
+    },
+    {
+      "bloque": "C05-demora",
+      "archivo": "charts/cro-story/c05-demora.html",
+      "sha256": "f65f8333d361b883dde03c7c895303287e5ad9b75874b03436469a13b343ab11",
+      "cell": 48,
+      "output": 0,
+      "titulo_original": "Mediana hasta el primer intento",
+      "titulo_web": "Mediana hasta el primer intento"
+    }
+  ],
+  "plotly_lib": {
+    "archivo": "charts/plotly.min.js",
+    "sha256": "3b6e15d45dbb7fca5bd2094291e961ddc5472cd887009e6009a56dab668d721f",
+    "version": "4.1.1",
+    "origen": "resultados/cfo/graficas/principal/plotly.min.js"
+  },
+  "nota": "Figuras ya calculadas exportadas sin reescribir ejes/unidades/títulos. Conclusiones como texto en src/content/cro.json; este manifiesto no duplica textos."
+}

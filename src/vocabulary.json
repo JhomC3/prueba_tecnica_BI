@@ -1,0 +1,19 @@
+{
+  "estados": ["Disponible", "En revisión", "Pendiente"],
+  "tipos_evidencia": ["Datos del reto", "Datos sintéticos", "Propuesta", "Hipótesis"],
+  "terminos_obligatorios": [
+    "importe observado",
+    "pagadores observados",
+    "modelo propuesto",
+    "ejemplo ilustrativo",
+    "hipótesis",
+    "pendiente de información"
+  ],
+  "terminos_prohibidos": [
+    "MRR contractual",
+    "churn contractual",
+    "adquisición demostrada",
+    "clientes nuevos confirmados"
+  ],
+  "nota": "Los términos prohibidos solo pueden aparecer negados o como límite explícito (p. ej. «no constituye MRR contractual»). El gate lo verifica con contexto."
+}

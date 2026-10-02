@@ -1,0 +1,65 @@
+{
+  "revision": "notebook-final-298dbb74",
+  "fecha": "2026-10-02",
+  "escenario": "principal (datos sintéticos)",
+  "poblacion": "110 clientes por alternativa; foco de 50 elegibles; referencia pareada",
+  "periodo": "enero 2025–marzo 2026 (6 previos, 3 de descuento, 6 posteriores)",
+  "fuentes": {
+    "notebook": {
+      "archivo": "notebooks/03_modelo_cfo.ipynb",
+      "sha256": "298dbb74c6bb5f9eb7b1fa780ab428c8a8d17af3b38cadd8967697677fa5f315"
+    },
+    "mensual_csv_sha256": "dfb932bfc78b7441e149c0a1398d5cdf65eaa109c00160653a8cd9b1ac4e0421",
+    "foco_comparacion_sha256": "5f9e957612baf97fda0e9337f788e3c3b9ebd0d74e82ee48a5cd62419b20f653",
+    "focos_csv_sha256": "424becb44aab0f0def6c28bfcf352d14314f7da32e111c86d3bf8da057454799",
+    "foco_resumen": {
+      "diferencia_acumulada": -150000,
+      "aumento_bruto_acumulado": 450000,
+      "descuento_acumulado": 600000,
+      "recuperacion": "no recuperado al corte",
+      "mes_recuperacion": null,
+      "tipo": null,
+      "recae": false,
+      "umbral_equilibrio_cent": 3000,
+      "identidad": {
+        "por_cliente": -3000,
+        "total_50": -150000
+      },
+      "objetivo": "ampliacion",
+      "n_foco": 50
+    }
+  },
+  "validaciones": {
+    "celdas": 23,
+    "plotly": 2,
+    "bruto_menos_descuento_igual_neto": true,
+    "cierre_con": 10300.0,
+    "cierre_sin": 9800.0,
+    "diferencia_acumulada": -1500.0,
+    "fases_elegibles": {
+      "durante": -4500.0,
+      "posterior": 3000.0
+    }
+  },
+  "figuras": [
+    {
+      "bloque": "S05-mrr",
+      "archivo": "charts/cfo/10_evolucion_principal.html",
+      "sha256": "56fb096a80e9c047480c7e3bcecedef72e66e506ce647ac37bfa441932a2085e",
+      "titulo": "MRR bruto y neto con y sin política"
+    },
+    {
+      "bloque": "S06-recuperacion",
+      "archivo": "charts/cfo/12_recuperacion_foco.html",
+      "sha256": "c399c08287ca53469acdb83f6ff503a55801842d7145fa88be8e4c90b9b8efc5",
+      "titulo": "¿La ampliación compensa los descuentos?"
+    }
+  ],
+  "plotly_lib": {
+    "archivo": "charts/plotly.min.js",
+    "sha256": "3b6e15d45dbb7fca5bd2094291e961ddc5472cd887009e6009a56dab668d721f",
+    "version": "4.1.1",
+    "origen": "resultados/cfo/graficas/principal/plotly.min.js"
+  },
+  "nota": "Figuras con datos idénticos al origen; solo el cargador apunta a la biblioteca local compartida. Conclusiones como texto en src/content/cfo.json."
+}

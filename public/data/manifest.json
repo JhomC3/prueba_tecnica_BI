@@ -1,0 +1,41 @@
+{
+  "figura": {
+    "archivo": "charts/01_new_tendencia.html",
+    "sha256": "906401595faa02d4d6952aa9b79ad7703a0f88b108fee82daf630b585c93bd4b",
+    "origen_archivo": "resultados/cro/graficas/01_new_tendencia.html",
+    "origen_sha256": "906401595faa02d4d6952aa9b79ad7703a0f88b108fee82daf630b585c93bd4b"
+  },
+  "serie": {
+    "archivo": "data/new_serie_referencia.json",
+    "sha256": "3dcee673a4252b3e95233fd9e74ab39a6e947d4fd3b34bf6aa8188721a73ac47",
+    "origen_archivo": "resultados/cro/metricas/referencia/demanda.csv",
+    "origen_sha256": "9591a5cb8c71e10776c01186b427cfae5daab59f7fbf36926b09870f5932d2c9",
+    "n_meses": 8,
+    "periodo": "2026-01 a 2026-08, por mes de entrada a New",
+    "meses": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08"
+    ],
+    "nota_variacion": "columna crecimiento_new_pct del CSV, redondeada a 1 decimal"
+  },
+  "contenidos": [
+    {
+      "archivo": "content/resumen.json",
+      "sha256": "8276f50435cf1456b76ff3d33af802237159beb86a511d4f8d5dda4404aa542a"
+    },
+    {
+      "archivo": "content/cro.json",
+      "sha256": "df4b1d7403054e2fc0273e54ca72941919da0d6add24e9d16fe8ea5536dc5162"
+    },
+    {
+      "archivo": "content/cfo.json",
+      "sha256": "0a5535cfc4ce999d4469a5644a9586164f3eaff52fd3f571955bb1850fe84330"
+    }
+  ]
+}

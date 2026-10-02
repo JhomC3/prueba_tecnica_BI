@@ -1,0 +1,5 @@
+# Conservar los bytes de las fuentes, incluidos BOM y finales de línea.
+*.csv -text
+*.limpio.md -text
+docs/fuentes/*.md -text
+docs/fuentes/*.txt -text whitespace=-blank-at-eol

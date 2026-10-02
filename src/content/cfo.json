@@ -1,0 +1,1428 @@
+{
+  "id": "cfo",
+  "titulo": "Caso CFO — cambios del MRR y descuentos",
+  "decisor": "CFO",
+  "estado": "en_revision",
+  "requerimiento_original": {
+    "texto": "Si un cliente pagaba 100 y ahora paga 80, ¿contrajo 20 o recibió un descuento? ¿Qué pasa si su suscripción creció de 100 a 130, pero tiene un descuento de 30 y sigue pagando 100? ¿Y cuando desaparezca el descuento, eso cuenta como expansión? Quiero saber qué está pasando con el negocio subyacente y cuánto revenue estamos dejando de capturar por decisiones comerciales. Al final queremos poder responder consistentemente: ¿Por qué cambió nuestro MRR? y ¿cuánto del cambio corresponde al comportamiento del cliente y cuánto a pricing o descuentos?",
+    "fuente": "docs/casos/cfo.md"
+  },
+  "componentes": [
+    {
+      "numero": 1,
+      "nombre": "Quién decide",
+      "pregunta_marco": "¿Quién usa el análisis y ejecuta la decisión?",
+      "respuesta": "El CFO. Finanzas y quienes autorizan precios y descuentos participarían; no asumir que la decisión pertenece a Marketing.",
+      "estado": "disponible",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §1",
+        "nota": null
+      }
+    },
+    {
+      "numero": 2,
+      "nombre": "Decisión y éxito",
+      "pregunta_marco": "¿Qué decide y cómo sabremos si fue útil?",
+      "respuesta": "Responder si aumenta el MRR y cuánto de su cambio corresponde al negocio subyacente, a precios o a descuentos. Éxito inicial: saldo inicial + movimientos = saldo final, sin doble conteo, con causas identificables y límites explícitos.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §2",
+        "nota": "Cómo medir y qué descuentos mantener, ajustar o limitar, pendiente de evidencia."
+      }
+    },
+    {
+      "numero": 3,
+      "nombre": "Necesidad real",
+      "pregunta_marco": "¿Qué necesita saber para elegir?",
+      "respuesta": "Separar servicio y uso, precio, descuento y pago, y comprobar si menor ingreso inmediato se compensa con permanencia, ampliación o adquisición. Pregunta condensada aceptada como contexto comercial, sin sustituir la pregunta concreta del CFO. Aclaraciones previas pendientes: objetivo final, intención de la política, horizonte, criterio de éxito y restricciones.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §3",
+        "nota": null
+      }
+    },
+    {
+      "numero": 4,
+      "nombre": "Preguntas analíticas",
+      "pregunta_marco": "¿Qué responder con datos?",
+      "respuesta": "Preguntas de referencia del candidato y del reto más propuestas de desarrollo de IA, cada una con evidencia necesaria (ver sección Preguntas analíticas). Selección y fusión pendientes de revisión; ninguna pregunta sustantiva eliminada.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §4 e inventario en docs/proceso/cfo-inventario-preguntas.md",
+        "nota": null
+      }
+    },
+    {
+      "numero": 5,
+      "nombre": "Definiciones y métricas",
+      "pregunta_marco": "¿Cómo medir cada concepto?",
+      "respuesta": "Propuestas: MRR bruto, descuentos y MRR neto (neto = bruto − descuentos); MRR neto total y promedio; retención y churn; permanencia; ingreso neto acumulado; desviación frente a tendencia. Métricas complementarias (MRR/ARR, LTV, NRR/GRR) por crear y evaluar con supuestos explícitos. 100 → 80 no identifica la causa por sí solo.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §5",
+        "nota": "Facturación y cobro no equivalen automáticamente a MRR."
+      }
+    },
+    {
+      "numero": 6,
+      "nombre": "Datos necesarios",
+      "pregunta_marco": "¿Qué información hace falta?",
+      "respuesta": "Cliente y suscripciones con estados y fechas; producto, cantidad y uso con precios y vigencias; descuentos con monto, vigencia, alcance, objetivo, motivo y autorización; facturas y pagos vinculados. Para LTV: ingreso neto, permanencia y churn, cohortes y supuestos; costos y margen si se estima contribución.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cfo.md §6",
+        "nota": null
+      }
+    },
+    {
+      "numero": 7,
+      "nombre": "Disponibilidad, calidad y modelo",
+      "pregunta_marco": "¿Qué responden los datos actuales y coinciden con el origen?",
+      "respuesta": "Transactions aporta cliente, mes y monto pagado: describe pagos y cambios, no identifica contratos, descuentos ni causas. Cero no prueba churn; primer pago observado no prueba adquisición. Conciliación contra origen y definiciones comerciales pendientes. Sin evaluación real de descuentos ni MRR contractual demostrado.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "datos_reto",
+        "referencia": "docs/datos/inspeccion.md y docs/casos/cfo.md §7",
+        "nota": null
+      }
+    },
+    {
+      "numero": 8,
+      "nombre": "Hipótesis y comprobación",
+      "pregunta_marco": "¿Qué explicaciones contrastar?",
+      "respuesta": "Propuestas: mayor permanencia, ampliación o adquisición podrían compensar menor ingreso inmediato; línea base de tendencia previa como referencia sencilla. Antes y después mejoran la descripción pero no demuestran atribución; bruto menos neto mide descuento aplicado, no ventas que habrían ocurrido sin él.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "hipotesis",
+        "referencia": "docs/casos/cfo.md §8",
+        "nota": "Sin comprobar."
+      }
+    },
+    {
+      "numero": 9,
+      "nombre": "Análisis",
+      "pregunta_marco": "¿Qué ocurre, dónde, a quién y desde cuándo?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 10,
+      "nombre": "Diagnóstico",
+      "pregunta_marco": "¿Qué explica los hallazgos?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 11,
+      "nombre": "Acción de negocio",
+      "pregunta_marco": "¿Qué hacer y cómo comprobar su efecto?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 12,
+      "nombre": "Solución analítica",
+      "pregunta_marco": "¿Qué herramienta apoya la decisión y acción?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 13,
+      "nombre": "Evaluación y aprendizaje",
+      "pregunta_marco": "¿Permite decidir y qué debemos ajustar?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "cfo-p1",
+      "pregunta": "¿aplicar descuentos aumenta la facturación o aumenta el ingreso mensual recurrente?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Ingreso bruto y neto, descuentos y trayectoria antes, durante y después, por cliente y cohorte. Distinguir facturación de MRR y cambio observado de efecto atribuible.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p2",
+      "pregunta": "¿Qué puede y qué no puede responder el modelo actual (cliente + mes + monto pagado)?",
+      "origen": "referencia",
+      "origen_nota": "Pregunta 1 del reto; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Campos disponibles, grano, historia, estados y significado de pagos y ceros.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p3",
+      "pregunta": "¿Cómo separarías el valor de la suscripción del precio efectivamente pagado? ¿Qué campos, tablas o definiciones agregarías?",
+      "origen": "referencia",
+      "origen_nota": "Pregunta 2 del reto; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Suscripciones, servicios y uso, precios, descuentos con vigencias y pagos vinculados.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p4",
+      "pregunta": "¿qué se entiende por expansión? ¿Cómo calificarías el inicio y el fin de un descuento para que no se confundan con contracción o expansión reales?",
+      "origen": "referencia",
+      "origen_nota": "Pregunta 3 del reto; «calificarías» conserva la transcripción del candidato.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Definiciones y puente que separe servicio, precio y descuento; comprobar los tres ejemplos del CFO.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p5",
+      "pregunta": "¿y cuánto revenue estamos dejando de capturar por decisiones comerciales?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Diferencia bruto y neto y descuentos acumulados. Para pérdida incremental: comparación sin descuento o supuesto explícito.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p6",
+      "pregunta": "¿cuál es la intención?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Objetivo declarado: ampliación, retención o adquisición; reactivación si aplica. Condiciones, monto o porcentaje, vigencia y criterio de éxito.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p7",
+      "pregunta": "si los descuentos únicamente son para clientes antiguos, existentes o para clientes nuevos",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Política de elegibilidad y población afectada; los ejemplos no demuestran exclusividad.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p8",
+      "pregunta": "¿Cuánto revenue mensual se obtenía antes de las decisiones comerciales en un periodo de tiempo considerable? ¿Y cuánto revenue mensual recurrente va a haber en los tres meses siguientes o seis meses siguientes? ¿Va a aumentar?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Tendencias y escenarios antes, durante y después; horizonte común y seguimiento tras vencimiento. Tres o seis meses por justificar, no plazo aprobado ni pronóstico garantizado.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p9",
+      "pregunta": "¿por qué no miramos el annual revenue recurrent, el lifetime value y otras métricas que se utilizan? ¿Por qué el monthly?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Crear y evaluar MRR/ARR, LTV, promedio por cliente, NRR/GRR e ingreso acumulado; definiciones y supuestos. CAC y margen según intención y datos.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p10",
+      "pregunta": "¿Cambian la retención, el churn y la permanencia con los descuentos?",
+      "origen": "propuesta_desarrollo",
+      "origen_nota": "Propuesta de desarrollo de IA, pendiente de revisión; no es pregunta del reto.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Cohortes comparables, bajas confirmadas, duración observada y retención a plazos fijos; activos con seguimiento incompleto separados.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p11",
+      "pregunta": "¿El cliente mantiene el servicio y el ingreso después de vencer el descuento?",
+      "origen": "propuesta_desarrollo",
+      "origen_nota": "Propuesta de desarrollo de IA, pendiente de revisión; no es pregunta del reto.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Plan y uso, ingreso neto y permanencia posterior; separar fin del descuento de ampliación real.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p12",
+      "pregunta": "¿Cuánto del cambio supera o queda por debajo de la tendencia previa?",
+      "origen": "propuesta_desarrollo",
+      "origen_nota": "Propuesta de desarrollo de IA, pendiente de revisión; no es pregunta del reto.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Línea base de crecimiento comparable, estacionalidad y observado menos esperado; aproximación, no causalidad demostrada.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p13",
+      "pregunta": "¿Cómo se autoriza y controla el presupuesto de descuentos?",
+      "origen": "propuesta_desarrollo",
+      "origen_nota": "Propuesta de desarrollo de IA, pendiente de revisión; no es pregunta del reto.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Responsable, límites, motivos y presupuesto. Marketing como dueño y tratamiento contable pendientes de aclarar.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    },
+    {
+      "id": "cfo-p14",
+      "pregunta": "¿Cuál es la preocupación final o principal del CFO? ¿Cuál es el objetivo de la empresa?",
+      "origen": "referencia",
+      "origen_nota": "Formulación de referencia del candidato; conservar literal.",
+      "que_medimos": null,
+      "alcance": null,
+      "metrica_formula": null,
+      "datos": null,
+      "evidencia_necesaria": "Aclaración previa: necesidad concreta y prioridad empresarial. Objetivos alternativos de mercado como contexto; sin estudio estratégico adicional.",
+      "calculo": null,
+      "figura": null,
+      "estado": "pendiente",
+      "lectura": null
+    }
+  ],
+  "nota_cierre": "Los tres ejemplos del reto (100 → 80; suscripción 100 → 130 con descuento 30 y neto 100; fin del descuento) pertenecen al enunciado y se responden en S01. Modelo ejecutado con puente conciliado y notebook final; tablas A–I con derivadas distinguidas.",
+  "recorrido": {
+    "pregunta_principal": "¿La política de descuentos mejora o deteriora el ingreso recurrente neto y el valor económico de los clientes durante el horizonte evaluado?",
+    "proposito": "Evaluar ingreso recurrente neto y valor del cliente para mantener, ajustar o comprobar condiciones de descuento.",
+    "alcance": "Escenario sintético con referencia pareada; enero 2025–marzo 2026. La comparación es un supuesto del escenario, no un efecto causal. Nueve meses de ingresos no representan utilidad ni LTV completo.",
+    "capitulos": [
+      {
+        "id": "S01",
+        "pregunta_literal": "Respuesta a las tres preguntas del CFO",
+        "que_medimos": "Las reglas de clasificación con los tres ejemplos del reto.",
+        "alcance": "Ejemplos individuales 100/80, 100→130−30 y fin del descuento.",
+        "justificacion_plazo": "Sin plazo: reglas atemporales.",
+        "metrica_formula": "Bruto, descuento y neto separados por vigencia.",
+        "datos": "Definiciones del caso; sin cálculo nuevo.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S01-r1",
+            "figura": null,
+            "conclusion": "Si el bruto baja de 100 a 80 sin descuento, hubo contracción del valor bruto y del MRR neto. Si el bruto permanece en 100 y aplicamos un descuento de 20, hay contracción del MRR neto por descuento, sin disminución del bruto.",
+            "siguiente_analisis": "Con la distinción bruto/descuento, responder qué pasa al crecer con descuento.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": null
+          },
+          {
+            "id": "S01-r2",
+            "figura": null,
+            "conclusion": "Si el bruto aumenta de 100 a 130 con descuento de 30, aumenta el valor bruto, pero el neto permanece en 100. El aumento puede deberse a más servicios o a una mayor tarifa; distinguimos ambas causas.",
+            "siguiente_analisis": "Con la causa identificada, clasificar el fin del descuento.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": null
+          },
+          {
+            "id": "S01-r3",
+            "figura": null,
+            "conclusion": "Al vencer el descuento, el neto aumenta a 130: hay expansión del MRR neto por fin del descuento, sin nuevo aumento del bruto ni servicios adicionales.",
+            "siguiente_analisis": "Con esas reglas, auditar qué responde el modelo actual.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S02",
+        "pregunta_literal": "¿Qué puede y qué no puede responder el modelo actual (cliente + mes + monto pagado)?",
+        "que_medimos": "El alcance del modelo actual frente a las preguntas del CFO.",
+        "alcance": "Tabla Transactions.csv (ID, month, amount) más Industry; sin contratos, servicios, tarifas, descuentos ni estados.",
+        "justificacion_plazo": "Sin plazo: inventario de campos.",
+        "metrica_formula": "Monto pagado por cliente y total; variación entre meses.",
+        "datos": "Transactions.csv e Industry.csv del reto.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S02-modelo",
+            "figura": null,
+            "conclusion": "Puede responder: monto pagado por cliente y total, variación entre meses, clientes con pago y continuidad o interrupciones de pago. No puede responder: la causa del cambio, el valor recurrente antes de descuentos, cuánto descuento se aplicó ni cuándo vence; tampoco confirma inicio o fin del contrato ni la vida completa: un pago ausente o cero puede ser un atraso, no una baja demostrada. El primer pago observado puede ser de un cliente que ya pagaba; la duración queda desconocida si la historia está incompleta.",
+            "siguiente_analisis": "Para separar las causas, agregar suscripciones, componentes, precios, estados y descuentos con historia.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Campos de Transactions.csv",
+              "plegada": false,
+              "resumen": "Campos",
+              "columnas": [
+                {
+                  "campo": "campo",
+                  "etiqueta": "Campo"
+                },
+                {
+                  "campo": "contenido",
+                  "etiqueta": "Qué contiene"
+                }
+              ],
+              "filas": [
+                {
+                  "campo": "ID",
+                  "contenido": "Identificador del cliente"
+                },
+                {
+                  "campo": "month",
+                  "contenido": "Mes del registro"
+                },
+                {
+                  "campo": "amount",
+                  "contenido": "Monto pagado en ese mes"
+                }
+              ]
+            },
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S03",
+        "pregunta_literal": "¿Cómo debe evolucionar el modelo para separar suscripción, precio, descuento y pago?",
+        "que_medimos": "Las tablas, relaciones y reglas que separan causas del cambio.",
+        "alcance": "Nueve tablas sintéticas con historia y vigencias; importes en UM ilustrativas.",
+        "justificacion_plazo": "Vigencias con fin exclusivo; fotografías al inicio del mes.",
+        "metrica_formula": "MRR neto = bruto − descuentos; puente: apertura + movimientos = neto final.",
+        "datos": "Datos sintéticos generados; scripts/cfo_model.py.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S03-modelo",
+            "figura": null,
+            "conclusion": "Cliente → suscripciones → componentes → precios y descuentos; estados por mes; componentes_mes valora cantidad × tarifa menos descuento; pagos registra cobro con pendientes y cargos no recurrentes; movimientos agrega por cliente y mes. Un pendiente o cargo no recurrente puede hacer que pago y MRR difieran.",
+            "siguiente_analisis": "Con el modelo fijado, definir escenario, población y comparación.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Tablas del modelo propuesto",
+              "plegada": true,
+              "resumen": "Nueve tablas y su grano",
+              "columnas": [
+                {
+                  "campo": "tabla",
+                  "etiqueta": "Tabla"
+                },
+                {
+                  "campo": "grano",
+                  "etiqueta": "Una fila representa"
+                }
+              ],
+              "filas": [
+                {
+                  "tabla": "A. Clientes",
+                  "grano": "Un cliente: tipo y elegibilidad para el descuento."
+                },
+                {
+                  "tabla": "B. Suscripciones",
+                  "grano": "Una suscripción recurrente con inicio y fin."
+                },
+                {
+                  "tabla": "C. Componentes",
+                  "grano": "Un servicio o partida de una suscripción."
+                },
+                {
+                  "tabla": "D. Precios",
+                  "grano": "Una versión de tarifa con vigencia."
+                },
+                {
+                  "tabla": "E. Descuentos",
+                  "grano": "Un descuento temporal sobre un componente."
+                },
+                {
+                  "tabla": "F. Estados",
+                  "grano": "Una suscripción en un mes (activo/baja/inactivo)."
+                },
+                {
+                  "tabla": "G. Componentes por mes",
+                  "grano": "Un componente activo valorado en un mes."
+                },
+                {
+                  "tabla": "H. Pagos",
+                  "grano": "Un cobro de una suscripción en un mes."
+                },
+                {
+                  "tabla": "I. Movimientos",
+                  "grano": "Un cliente en un mes, tras agregar suscripciones."
+                }
+              ]
+            },
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S04",
+        "pregunta_literal": "Escenario, población, comparación y periodo",
+        "que_medimos": "El diseño de la comparación que responde la pregunta principal.",
+        "alcance": "Enero 2025–marzo 2026: seis meses previos, tres de descuento (julio–septiembre 2025) y seis posteriores. 50 elegibles activos antes de la política; referencia pareada con los mismos clientes.",
+        "justificacion_plazo": "El plazo cubre vigencia y recuperación a seis meses del vencimiento; no toda la vida del cliente.",
+        "metrica_formula": "Resultado incremental = neto con política menos referencia, por cliente y mes.",
+        "datos": "Escenario sintético determinista; CONFIG en scripts/cfo_model.py.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S04-diseno",
+            "figura": null,
+            "conclusion": "50 clientes amplían sus servicios de 100 a 110 unidades monetarias y reciben un descuento mensual de 40 durante tres meses: pagan 70 y, al vencer, pagan 110. La gráfica muestra todos los clientes, con altas, reactivaciones, bajas y cambios de tarifa en ambas alternativas; por eso la referencia también varía.",
+            "siguiente_analisis": "Ver cómo cambia el MRR frente a la referencia.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S05",
+        "pregunta_literal": "3.1. ¿Cómo cambia el MRR frente a la referencia?",
+        "que_medimos": "La evolución del valor bruto, los descuentos y el MRR neto.",
+        "alcance": "Total general y ambas alternativas, enero 2025–marzo 2026.",
+        "justificacion_plazo": "La historia previa permite comprobar el punto de partida; julio inicia la política y octubre el vencimiento.",
+        "metrica_formula": "MRR neto = suma(bruto − descuento).",
+        "datos": "Componentes por mes agregados a cliente y total; mensual.csv.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S05-mrr",
+            "figura": {
+              "id": "S05-mrr",
+              "titulo": "MRR bruto y neto con y sin política",
+              "iframe_src": "charts/cfo/10_evolucion_principal.html"
+            },
+            "conclusion": "Al cierre, el MRR neto es de 10.300 con política frente a 9.800 sin política, representando un aumento de 500 unidades monetarias. Ahora comprobamos si este aumento compensa los descuentos concedidos desde julio.",
+            "siguiente_analisis": "El final sube; comprobar si el acumulado compensa los descuentos desde julio.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Bruto, descuentos y neto por mes (UM)",
+              "plegada": true,
+              "resumen": "Valores de la gráfica",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes"
+                },
+                {
+                  "campo": "grupo",
+                  "etiqueta": "Grupo"
+                },
+                {
+                  "campo": "bruto",
+                  "etiqueta": "Bruto"
+                },
+                {
+                  "campo": "descuento",
+                  "etiqueta": "Descuentos"
+                },
+                {
+                  "campo": "neto",
+                  "etiqueta": "Neto"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2025-01",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-02",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-03",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-04",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-05",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-06",
+                  "grupo": "Referencia",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-07",
+                  "grupo": "Referencia",
+                  "bruto": "10700.0",
+                  "descuento": "0.0",
+                  "neto": "10700.0"
+                },
+                {
+                  "mes": "2025-08",
+                  "grupo": "Referencia",
+                  "bruto": "10700.0",
+                  "descuento": "0.0",
+                  "neto": "10700.0"
+                },
+                {
+                  "mes": "2025-09",
+                  "grupo": "Referencia",
+                  "bruto": "11200.0",
+                  "descuento": "0.0",
+                  "neto": "11200.0"
+                },
+                {
+                  "mes": "2025-10",
+                  "grupo": "Referencia",
+                  "bruto": "10700.0",
+                  "descuento": "0.0",
+                  "neto": "10700.0"
+                },
+                {
+                  "mes": "2025-11",
+                  "grupo": "Referencia",
+                  "bruto": "10700.0",
+                  "descuento": "0.0",
+                  "neto": "10700.0"
+                },
+                {
+                  "mes": "2025-12",
+                  "grupo": "Referencia",
+                  "bruto": "10800.0",
+                  "descuento": "0.0",
+                  "neto": "10800.0"
+                },
+                {
+                  "mes": "2026-01",
+                  "grupo": "Referencia",
+                  "bruto": "9800.0",
+                  "descuento": "0.0",
+                  "neto": "9800.0"
+                },
+                {
+                  "mes": "2026-02",
+                  "grupo": "Referencia",
+                  "bruto": "9800.0",
+                  "descuento": "0.0",
+                  "neto": "9800.0"
+                },
+                {
+                  "mes": "2026-03",
+                  "grupo": "Referencia",
+                  "bruto": "9800.0",
+                  "descuento": "0.0",
+                  "neto": "9800.0"
+                },
+                {
+                  "mes": "2025-01",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-02",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-03",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-04",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-05",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-06",
+                  "grupo": "Con política",
+                  "bruto": "10200.0",
+                  "descuento": "0.0",
+                  "neto": "10200.0"
+                },
+                {
+                  "mes": "2025-07",
+                  "grupo": "Con política",
+                  "bruto": "11200.0",
+                  "descuento": "2000.0",
+                  "neto": "9200.0"
+                },
+                {
+                  "mes": "2025-08",
+                  "grupo": "Con política",
+                  "bruto": "11200.0",
+                  "descuento": "2000.0",
+                  "neto": "9200.0"
+                },
+                {
+                  "mes": "2025-09",
+                  "grupo": "Con política",
+                  "bruto": "11700.0",
+                  "descuento": "2000.0",
+                  "neto": "9700.0"
+                },
+                {
+                  "mes": "2025-10",
+                  "grupo": "Con política",
+                  "bruto": "11200.0",
+                  "descuento": "0.0",
+                  "neto": "11200.0"
+                },
+                {
+                  "mes": "2025-11",
+                  "grupo": "Con política",
+                  "bruto": "11200.0",
+                  "descuento": "0.0",
+                  "neto": "11200.0"
+                },
+                {
+                  "mes": "2025-12",
+                  "grupo": "Con política",
+                  "bruto": "11300.0",
+                  "descuento": "0.0",
+                  "neto": "11300.0"
+                },
+                {
+                  "mes": "2026-01",
+                  "grupo": "Con política",
+                  "bruto": "10300.0",
+                  "descuento": "0.0",
+                  "neto": "10300.0"
+                },
+                {
+                  "mes": "2026-02",
+                  "grupo": "Con política",
+                  "bruto": "10300.0",
+                  "descuento": "0.0",
+                  "neto": "10300.0"
+                },
+                {
+                  "mes": "2026-03",
+                  "grupo": "Con política",
+                  "bruto": "10300.0",
+                  "descuento": "0.0",
+                  "neto": "10300.0"
+                }
+              ]
+            },
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S06",
+        "pregunta_literal": "3.2. ¿Y cuánto revenue estamos dejando de capturar por decisiones comerciales?",
+        "que_medimos": "Si el aumento mensual compensa los descuentos desde julio, en 50 clientes con descuento durante nueve meses.",
+        "alcance": "Julio 2025–marzo 2026; tabla de todo el negocio y gráfica de los 50 clientes. Todas las líneas son acumuladas; cero significa equilibrio.",
+        "justificacion_plazo": "Nueve meses: tres de descuento y seis posteriores al vencimiento.",
+        "metrica_formula": "Saldo de la política = ingreso por ampliación − descuentos aplicados.",
+        "datos": "foco_comparacion.csv y comparacion.csv.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S06-comparativa",
+            "figura": null,
+            "conclusion": "El ingreso neto acumulado con política es 1.500 UM menor (92.700 frente a 94.200) en julio 2025–marzo 2026.",
+            "siguiente_analisis": "Ver en la gráfica acumulada si la ampliación compensa los descuentos.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Ingreso neto julio 2025–marzo 2026 (UM)",
+              "plegada": false,
+              "resumen": "Tabla comparativa",
+              "columnas": [
+                {
+                  "campo": "medida",
+                  "etiqueta": "Medida"
+                },
+                {
+                  "campo": "con",
+                  "etiqueta": "Con política"
+                },
+                {
+                  "campo": "sin",
+                  "etiqueta": "Sin política"
+                },
+                {
+                  "campo": "dif",
+                  "etiqueta": "Diferencia"
+                }
+              ],
+              "filas": [
+                {
+                  "medida": "Ingreso neto acumulado (UM)",
+                  "con": "92,700.00",
+                  "sin": "94,200.00",
+                  "dif": "-1,500.00"
+                },
+                {
+                  "medida": "Promedio mensual (UM)",
+                  "con": "10,300.00",
+                  "sin": "10,466.67",
+                  "dif": "-166.67"
+                }
+              ]
+            },
+            "lista": null
+          },
+          {
+            "id": "S06-recuperacion",
+            "figura": {
+              "id": "S06-recuperacion",
+              "titulo": "¿La ampliación compensa los descuentos?",
+              "iframe_src": "charts/cfo/12_recuperacion_foco.html"
+            },
+            "conclusion": "El ingreso por ampliación suma 4.500 UM y los descuentos aplicados suman 6.000 UM. La diferencia de ingreso neto acumulado frente a no aplicar la política es -1.500 UM. Al finalizar marzo, todavía no se compensan los descuentos. El mayor MRR final no basta para concluir que la política compensa el descuento. Durante el descuento, los 50 clientes generan 4.500 UM menos que sin política; después, 3.000 UM más. El resultado cubre nueve meses; evaluar el valor del cliente durante toda su relación (LTV) requiere comparar permanencia e ingresos con y sin política.",
+            "siguiente_analisis": "Explicar la diferencia en los elegibles por fases.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Acumulados por mes, 50 clientes (UM)",
+              "plegada": true,
+              "resumen": "Acumulados",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes"
+                },
+                {
+                  "campo": "dif",
+                  "etiqueta": "Diferencia acumulada"
+                },
+                {
+                  "campo": "bruto",
+                  "etiqueta": "Aumento bruto acumulado"
+                },
+                {
+                  "campo": "desc",
+                  "etiqueta": "Descuento acumulado"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2025-07",
+                  "dif": "-1500.0",
+                  "bruto": "500.0",
+                  "desc": "2000.0"
+                },
+                {
+                  "mes": "2025-08",
+                  "dif": "-3000.0",
+                  "bruto": "1000.0",
+                  "desc": "4000.0"
+                },
+                {
+                  "mes": "2025-09",
+                  "dif": "-4500.0",
+                  "bruto": "1500.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2025-10",
+                  "dif": "-4000.0",
+                  "bruto": "2000.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2025-11",
+                  "dif": "-3500.0",
+                  "bruto": "2500.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2025-12",
+                  "dif": "-3000.0",
+                  "bruto": "3000.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2026-01",
+                  "dif": "-2500.0",
+                  "bruto": "3500.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2026-02",
+                  "dif": "-2000.0",
+                  "bruto": "4000.0",
+                  "desc": "6000.0"
+                },
+                {
+                  "mes": "2026-03",
+                  "dif": "-1500.0",
+                  "bruto": "4500.0",
+                  "desc": "6000.0"
+                }
+              ]
+            },
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S07",
+        "pregunta_literal": "3.3. ¿Qué explica el cambio?",
+        "que_medimos": "El aporte por fases de los elegibles frente a no aplicar la política.",
+        "alcance": "50 clientes con descuento, fases durante y posterior.",
+        "justificacion_plazo": "Mismo horizonte julio 2025–marzo 2026.",
+        "metrica_formula": "Saldo = diferencia durante + diferencia posterior.",
+        "datos": "focos.csv (Elegibles).",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S07-fases",
+            "figura": null,
+            "conclusion": "Durante el descuento, los 50 clientes generan 4.500 UM menos que sin política; después, 3.000 UM más.",
+            "siguiente_analisis": "Cerrar con conclusión, acción y evaluación.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": null
+          }
+        ]
+      },
+      {
+        "id": "S09",
+        "pregunta_literal": "Visión ampliada del análisis",
+        "que_medimos": "Cuatro preguntas breves fuera del hilo principal.",
+        "alcance": "Permanencia, LTV, adopción y rentabilidad; nueve meses no son utilidad ni valor completo.",
+        "justificacion_plazo": "Sin plazo nuevo.",
+        "metrica_formula": "Sin cálculo nuevo.",
+        "datos": "Notebook 37.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "S09-vision",
+            "figura": null,
+            "conclusion": "El resultado actual corresponde a ingresos durante nueve meses, no a utilidad ni al valor completo del cliente.",
+            "siguiente_analisis": "Profundizar según la decisión: permanencia, LTV, adopción o rentabilidad.",
+            "visibilidad": "primaria",
+            "tabla": null,
+            "lista": [
+              "¿Mejora la permanencia o la retención de ingresos? Comparar bajas e ingreso de los mismos clientes con y sin política.",
+              "¿Mejora el valor del cliente a largo plazo? Comparar ingreso y permanencia durante toda la relación, más allá de nueve meses.",
+              "¿Genera adopción de nuevos servicios? Comprobar si los servicios adicionales se mantienen después del descuento.",
+              "¿Mejora la rentabilidad? Incorporar los costos para evaluar el margen, además del ingreso."
+            ],
+            "datos": "Notebook 21."
+          }
+        ]
+      }
+    ],
+    "cierre": {
+      "id": "cierre",
+      "titulo": "Conclusión, acción y evaluación",
+      "sintesis": "La política aumenta el MRR al cierre, pero deja 1.500 unidades monetarias menos de ingreso acumulado frente a no aplicar la política durante 9 meses.",
+      "acciones": {
+        "id": "S08-ajustes",
+        "conclusion": "Decisión propuesta: ajustar monto o duración. 30 unidades monetarias al mes durante 3 meses equilibra el resultado; un monto menor lo supera. La tabla también compara acortar un mes el descuento. Esto supone la misma ampliación y permanencia. Acción: Finanzas y Comercial deben probar la oferta ajustada y comprobar su aceptación.",
+        "tabla": {
+          "caption": "Ajustes de monto y duración",
+          "plegada": false,
+          "resumen": "Tabla de sensibilidad",
+          "columnas": [
+            {
+              "campo": "condicion",
+              "etiqueta": "Condición"
+            },
+            {
+              "campo": "monto",
+              "etiqueta": "Descuento mensual (UM)"
+            },
+            {
+              "campo": "meses",
+              "etiqueta": "Meses de descuento"
+            },
+            {
+              "campo": "dif",
+              "etiqueta": "Diferencia acumulada (UM)"
+            }
+          ],
+          "filas": [
+            {
+              "condicion": "Actual",
+              "monto": "40.0",
+              "meses": "3",
+              "dif": "-1500.0"
+            },
+            {
+              "condicion": "Umbral, misma ampliación",
+              "monto": "30.0",
+              "meses": "3",
+              "dif": "0.0"
+            },
+            {
+              "condicion": "Un mes menos, misma ampliación",
+              "monto": "40.0",
+              "meses": "2",
+              "dif": "500.0"
+            }
+          ]
+        }
+      },
+      "evaluacion": "Evaluación propuesta: probar la oferta ajustada con dos grupos de clientes similares: uno con política y otro sin ella, asignados al azar si es posible. Seguir ambos grupos cada mes durante 9 meses: 3 con descuento y 6 después del vencimiento. Comparar ingreso neto acumulado por cliente y bajas. La política funciona si genera más ingreso acumulado sin superar el límite de bajas acordado antes de la prueba.",
+      "nota": "Causas pendientes fuera del escenario; impacto real no ejecutado ni medido. Nueve meses de ingresos no representan utilidad ni LTV completo."
+    }
+  },
+  "construccion": {
+    "pregunta": "¿La política de descuentos mejora o deteriora el ingreso recurrente neto y el valor económico de los clientes durante el horizonte evaluado?",
+    "proposito": "Evaluar ingreso recurrente neto y valor del cliente para mantener, ajustar o comprobar condiciones de descuento.",
+    "resumen": "Cliente + mes + monto no separa causas: la demostración usa datos sintéticos del escenario principal, con frente a sin política, y el recorrido analiza MRR y recuperación.",
+    "originales": [
+      {
+        "nombre": "Transactions.csv",
+        "estado": "recibido",
+        "descripcion": "Importes mensuales por cliente: columnas ID, month y amount.",
+        "aporta": "Monto pagado por cliente y total, variación entre meses y continuidad o interrupciones de pago.",
+        "limite": "No identifica la causa del cambio ni contratos, descuentos, estados o vigencias; un pago ausente o cero puede ser un atraso.",
+        "descarga": null
+      },
+      {
+        "nombre": "Industry.csv",
+        "estado": "recibido",
+        "descripcion": "Cliente e industria: columnas ID e Industria.",
+        "aporta": "Añade la industria del cliente a cada registro de pago.",
+        "limite": "No explica el cambio de la suscripción; la correspondencia de IDs con Transactions está por validar.",
+        "descarga": null
+      },
+      {
+        "nombre": "S&M_spend.csv",
+        "estado": "recibido",
+        "descripcion": "Gasto mensual de Sales & Marketing por categoría: columna Month más siete categorías, 34 meses (2022-01 a 2024-10).",
+        "aporta": "Contexto agregado del gasto comercial por mes.",
+        "limite": "Moneda y escala sin confirmar; sin atribución por equipo, canal o cliente; no mide descuentos aplicados.",
+        "descarga": null
+      }
+    ],
+    "nota_originales": "Archivos recibidos al inicio; se describen sin descarga en la web. Ninguno alimenta los cálculos de la demostración: esta usa datos sintéticos independientes. El desarrollo completo del modelo actual está en las secciones S02 y S03 del recorrido.",
+    "enlaces_recorrido": [
+      {
+        "ancla": "S02",
+        "texto": "Ver en S02 qué puede y qué no puede responder el modelo actual"
+      },
+      {
+        "ancla": "S03",
+        "texto": "Ver en S03 las nueve tablas del modelo propuesto"
+      }
+    ],
+    "faltante": [
+      {
+        "tema": "Suscripciones y componentes",
+        "detalle": "Contratos por cliente y servicios o partidas por suscripción."
+      },
+      {
+        "tema": "Cantidades o uso",
+        "detalle": "Cantidad por componente y mes para valorar el bruto."
+      },
+      {
+        "tema": "Tarifas con vigencias",
+        "detalle": "Precio por componente con inicio y fin de vigencia."
+      },
+      {
+        "tema": "Descuentos con inicio y fin",
+        "detalle": "Monto, porcentaje equivalente, vigencia, duración y objetivo comercial."
+      },
+      {
+        "tema": "Estados contractuales",
+        "detalle": "Estado por suscripción y mes (activo, baja, inactivo)."
+      },
+      {
+        "tema": "Pagos y conciliación",
+        "detalle": "Cobro vinculado al neto, con pendientes y cargos no recurrentes identificables."
+      }
+    ],
+    "sinteticos": {
+      "etiqueta": "Datos sintéticos de demostración",
+      "escenario": "Escenario principal del notebook CFO vigente, con dos alternativas pareadas: con_descuento y sin_descuento.",
+      "nota": "Tablas independientes de los archivos recibidos; cubren las necesidades listadas arriba. No se suman alternativas ni sensibilidades: la vista principal compara con frente a sin política; positivo, negativo y compensado quedan como respaldo citado.",
+      "tablas": [
+        {
+          "archivo": "con_descuento/clientes.csv",
+          "necesidad": "Clientes: tipo y elegibilidad para el descuento.",
+          "descarga": "data/archivos/cfo/con_descuento/clientes.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/suscripciones.csv",
+          "necesidad": "Suscripciones con inicio y fin.",
+          "descarga": "data/archivos/cfo/con_descuento/suscripciones.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/componentes.csv",
+          "necesidad": "Servicios o partidas por suscripción.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/precios.csv",
+          "necesidad": "Tarifas con vigencia.",
+          "descarga": "data/archivos/cfo/con_descuento/precios.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/descuentos.csv",
+          "necesidad": "Descuentos temporales con inicio, fin y objetivo.",
+          "descarga": "data/archivos/cfo/con_descuento/descuentos.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "sin_descuento/descuentos.csv",
+          "necesidad": "Referencia sin política: archivo vacío que ilustra la ausencia de descuentos.",
+          "descarga": "data/archivos/cfo/sin_descuento/descuentos.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/estados.csv",
+          "necesidad": "Estados por suscripción y mes.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/componentes_mes.csv",
+          "necesidad": "Valoración mensual: cantidad × tarifa menos descuento.",
+          "descarga": null,
+          "origen": "derivada",
+          "derivacion": "Calculada desde componentes, precios y descuentos vigentes."
+        },
+        {
+          "archivo": "con_descuento/pagos.csv",
+          "necesidad": "Cobros con pendientes y cargos no recurrentes.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "con_descuento/movimientos.csv",
+          "necesidad": "Agregado por cliente y mes.",
+          "descarga": null,
+          "origen": "derivada",
+          "derivacion": "Agregado de componentes_mes y pagos por cliente y mes."
+        }
+      ]
+    },
+    "puente": "Con estos datos se construyó la demostración. A partir de aquí continúa el recorrido existente: respuestas a las tres preguntas del CFO, evolución del MRR, recuperación, explicación y cierre con acción."
+  },
+  "respuestas_reto": [
+    {
+      "id": "R-CFO1",
+      "pregunta": "¿Qué puede y qué no puede responder el modelo actual (cliente + mes + monto pagado)?",
+      "respuesta": "Mide pagos y variaciones; no explica causas ni confirma estado contractual, ceros o inicio observado. Desarrollo completo en S02.",
+      "evidencia": [
+        {
+          "ancla": "f-modelo",
+          "texto": "Modelo que separa causas"
+        }
+      ]
+    },
+    {
+      "id": "R-CFO2",
+      "pregunta": "¿Cómo separarías el valor de la suscripción del precio efectivamente pagado? ¿Qué campos, tablas o definiciones agregarías?",
+      "respuesta": "Nueve tablas con grano, claves y vigencias: bruto = cantidad × tarifa, neto = bruto − descuento, pago conciliado aparte; componentes_mes y movimientos son derivadas. Desarrollo completo en S03.",
+      "evidencia": [
+        {
+          "ancla": "f-modelo",
+          "texto": "Modelo que separa causas"
+        }
+      ]
+    },
+    {
+      "id": "R-CFO3",
+      "pregunta": "¿Cómo clasificarías el inicio y el fin de un descuento para que no se confundan con contracción o expansión reales?",
+      "respuesta": "Por capa con fechas de inicio y fin: inicio sin cambio de bruto reduce el MRR neto por descuento, sin contracción subyacente de servicios; fin sin cambio de bruto es expansión del neto, no de servicios; cambios simultáneos se analizan por separado; la prórroga conserva la fecha anterior.",
+      "evidencia": [
+        {
+          "ancla": "f-modelo",
+          "texto": "Modelo y ejemplos de clasificación"
+        }
+      ]
+    },
+    {
+      "id": "R-CFO4",
+      "pregunta": "¿Por qué cambió nuestro MRR? y ¿cuánto del cambio corresponde al comportamiento del cliente y cuánto a pricing o descuentos?",
+      "respuesta": "El puente concilia saldo inicial + movimientos = saldo final por capas (subyacente, pricing, descuento) sin doble conteo; el cobro no equivale al MRR. Soporte: puente SQL publicado.",
+      "evidencia": [
+        {
+          "ancla": "f-politica",
+          "texto": "MRR frente a la referencia"
+        },
+        {
+          "ancla": "f-recupero",
+          "texto": "Recuperación acumulada"
+        }
+      ]
+    },
+    {
+      "id": "R-CFO-ejemplos",
+      "pregunta": "Tres ejemplos del CFO: pago 100 → 80; suscripción 100 → 130 con descuento 30 y neto 100; vencimiento del descuento.",
+      "respuesta": "100 → 80 sin descuento es contracción; con bruto en 100 y descuento 20 es reducción comercial. 100 → 130 con descuento 30 deja el neto en 100 (más servicios o mayor tarifa). Al vencer, el neto sube a 130: expansión del neto por fin del descuento, sin servicios nuevos.",
+      "evidencia": [
+        {
+          "ancla": "f-modelo",
+          "texto": "Ejemplos de clasificación"
+        }
+      ]
+    }
+  ],
+  "ejecutiva": {
+    "apertura": {
+      "cita_titular": "¿Por qué cambió nuestro MRR?",
+      "pregunta_despues": "¿La política de descuentos mejora o deteriora el ingreso recurrente neto y el valor económico de los clientes durante el horizonte evaluado?",
+      "sintesis_preocupacion": "Los pagos cambian, pero el dato no dice si es por servicios, tarifas o descuentos.",
+      "datos_intro": "Para responder, contamos con:",
+      "datos": [
+        "Importes mensuales por cliente.",
+        "Clientes e industria.",
+        "Gastos mensuales de Sales y Marketing."
+      ],
+      "insuficiencia": "Estos datos muestran lo pagado, pero no separan suscripción, descuentos y causas del cambio.",
+      "preguntas_rotulo": "Preguntas que priorizamos para el análisis",
+      "preguntas": [
+        {
+          "texto": "¿Qué puede y qué no puede explicar el modelo actual?",
+          "ref": "S02"
+        },
+        {
+          "texto": "¿Cómo separar suscripción, precio, descuento y pago?",
+          "ref": "S03"
+        },
+        {
+          "texto": "¿Cómo cambia el MRR frente a la referencia?",
+          "ref": "S05"
+        },
+        {
+          "texto": "¿Cuánto ingreso dejamos de capturar por la política?",
+          "ref": "S06"
+        },
+        {
+          "texto": "¿Qué explica la diferencia?",
+          "ref": "S07"
+        }
+      ],
+      "necesidad_intro": "Para responder estas preguntas necesitamos:",
+      "necesidad": "Historia de suscripciones, servicios y cantidades, tarifas, descuentos y vigencias, estados y pagos.",
+      "sinteticos_frase": "Para este ejercicio generamos datos sintéticos con esta información.",
+      "puente": "Comenzamos por separar qué observamos de qué podemos explicar.",
+      "cita_completa": "Si un cliente pagaba 100 y ahora paga 80, ¿contrajo 20 o recibió un descuento? ¿Qué pasa si su suscripción creció de 100 a 130, pero tiene un descuento de 30 y sigue pagando 100? ¿Y cuando desaparezca el descuento, eso cuenta como expansión? Quiero saber qué está pasando con el negocio subyacente y cuánto revenue estamos dejando de capturar por decisiones comerciales. Al final queremos poder responder consistentemente: ¿Por qué cambió nuestro MRR? y ¿cuánto del cambio corresponde al comportamiento del cliente y cuánto a pricing o descuentos?"
+    },
+    "escenas": [
+      {
+        "id": "f-modelo",
+        "titulo": "¿Cómo se calcula el MRR neto?",
+        "transicion": "Nueve tablas con vigencias; el detalle queda plegado.",
+        "bloques": [
+          "S03-modelo"
+        ],
+        "detalle": {
+          "titulo": "Ejemplos de clasificación",
+          "bloques": [
+            "S01-r1",
+            "S01-r2",
+            "S01-r3"
+          ]
+        },
+        "limite": "Valor de suscripción − descuento = MRR neto; el pago puede diferir por pendientes y cargos no recurrentes.",
+        "puente": "Con el modelo que separa causas, lo probamos con una política concreta."
+      },
+      {
+        "id": "f-politica",
+        "titulo": "¿Cómo cambia el MRR frente a la referencia?",
+        "transicion": "Escenario principal con referencia pareada.",
+        "bloques": [
+          "S04-diseno",
+          "S05-mrr"
+        ],
+        "limite": "Unidades monetarias sintéticas, no COP observado; la ampliación no es igual entre alternativas.",
+        "puente": "El cierre mejora; comprobamos si compensa los descuentos."
+      },
+      {
+        "id": "f-recupero",
+        "titulo": "¿Compensa la ampliación los descuentos?",
+        "transicion": "Acumulado julio 2025–marzo 2026.",
+        "bloques": [
+          "S06-recuperacion"
+        ],
+        "detalle": {
+          "titulo": "Comparativa y fases",
+          "bloques": [
+            "S06-comparativa",
+            "S07-fases"
+          ]
+        },
+        "limite": "Son ingresos, no utilidad ni LTV completo.",
+        "puente": "Sin recuperación en nueve meses; cerramos con ajuste y validación."
+      }
+    ],
+    "cierre": {
+      "decision": "Ajustar el monto o la duración del descuento.",
+      "responsable": "Finanzas y Comercial.",
+      "exito": "Más ingreso acumulado sin superar el límite de bajas acordado antes de la prueba.",
+      "supuestos": "El umbral de 30 UM depende de los supuestos del escenario: misma ampliación y permanencia."
+    }
+  },
+  "respaldo": {
+    "etiqueta": "Fuentes, método y respuestas al reto",
+    "definiciones": {
+      "titulo": "Definiciones y límites",
+      "items": [
+        {
+          "termino": "Bruto y neto",
+          "definicion": "MRR neto = bruto − descuentos."
+        },
+        {
+          "termino": "Pago",
+          "definicion": "Cobro con pendientes y cargos no recurrentes; no equivale al MRR."
+        },
+        {
+          "termino": "Vigencias",
+          "definicion": "Descuentos y tarifas con inicio y fin; el fin del descuento expande el neto sin nuevos servicios."
+        },
+        {
+          "termino": "Horizonte",
+          "definicion": "Enero 2025–marzo 2026; nueve meses de ingresos no son utilidad ni LTV."
+        },
+        {
+          "termino": "Umbral",
+          "definicion": "30 UM al mes durante 3 meses equilibra el resultado bajo misma ampliación y permanencia."
+        },
+        {
+          "termino": "Lo que el dato actual no explica",
+          "definicion": "Causas del cambio, estado contractual, ceros e inicio observado."
+        },
+        {
+          "termino": "Ampliaciones posibles",
+          "definicion": "¿Mejora la permanencia o la retención de ingresos? Comparar bajas e ingreso de los mismos clientes con y sin política. ¿Mejora el valor del cliente a largo plazo? Comparar ingreso y permanencia durante toda la relación, más allá de nueve meses. ¿Genera adopción de nuevos servicios? Comprobar si los servicios adicionales se mantienen después del descuento. ¿Mejora la rentabilidad? Incorporar los costos para evaluar el margen, además del ingreso."
+        }
+      ]
+    },
+    "fuentes": {
+      "titulo": "Fuentes y material de soporte",
+      "recibidas": "Transactions.csv (importes mensuales por cliente), Industry.csv (cliente e industria) y S&M_spend.csv (gasto mensual por categoría). No se publican los originales.",
+      "sinteticos": "Escenario principal del notebook CFO vigente, con dos alternativas pareadas: con_descuento y sin_descuento.",
+      "derivadas": "con_descuento/componentes_mes.csv, con_descuento/movimientos.csv",
+      "descargas": [
+        {
+          "archivo": "clientes.csv",
+          "ruta": "data/archivos/cfo/con_descuento/clientes.csv",
+          "descripcion": "Clientes: tipo y elegibilidad para el descuento."
+        },
+        {
+          "archivo": "suscripciones.csv",
+          "ruta": "data/archivos/cfo/con_descuento/suscripciones.csv",
+          "descripcion": "Suscripciones con inicio y fin."
+        },
+        {
+          "archivo": "precios.csv",
+          "ruta": "data/archivos/cfo/con_descuento/precios.csv",
+          "descripcion": "Tarifas con vigencia."
+        },
+        {
+          "archivo": "descuentos.csv",
+          "ruta": "data/archivos/cfo/con_descuento/descuentos.csv",
+          "descripcion": "Descuentos temporales con inicio, fin y objetivo."
+        },
+        {
+          "archivo": "descuentos.csv",
+          "ruta": "data/archivos/cfo/sin_descuento/descuentos.csv",
+          "descripcion": "Referencia sin política: archivo vacío que ilustra la ausencia de descuentos."
+        }
+      ],
+      "nota": "Descargas parciales para trazabilidad; no constituyen un paquete reproducible completo."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "escenario": "referencia (datos sintéticos)",
+  "periodo": "2026-01 a 2026-08, por mes de entrada a New",
+  "unidad": "cuentas (entradas a New)",
+  "poblacion": "cuentas que entraron por New, por mes de entrada",
+  "fuente": "resultados/cro/metricas/referencia/demanda.csv (segmento total)",
+  "nota_etiqueta": "Datos sintéticos · escenario referencia · 2026-01–2026-08",
+  "contexto": "Serie del CSV de referencia (segmento total). La variación mostrada es la columna crecimiento_new_pct ya calculada, redondeada a un decimal para la tabla; el primer mes no tiene comparación. Semilla, corte y reglas en docs/datos/modelo-cro-demo.md. No acredita qué pasó en Finora.",
+  "valores": [
+    {
+      "mes": "2026-01",
+      "entradas_new": 127,
+      "variacion_mensual_pct": null
+    },
+    {
+      "mes": "2026-02",
+      "entradas_new": 124,
+      "variacion_mensual_pct": -2.4
+    },
+    {
+      "mes": "2026-03",
+      "entradas_new": 132,
+      "variacion_mensual_pct": 6.5
+    },
+    {
+      "mes": "2026-04",
+      "entradas_new": 133,
+      "variacion_mensual_pct": 0.8
+    },
+    {
+      "mes": "2026-05",
+      "entradas_new": 179,
+      "variacion_mensual_pct": 34.6
+    },
+    {
+      "mes": "2026-06",
+      "entradas_new": 183,
+      "variacion_mensual_pct": 2.2
+    },
+    {
+      "mes": "2026-07",
+      "entradas_new": 182,
+      "variacion_mensual_pct": -0.5
+    },
+    {
+      "mes": "2026-08",
+      "entradas_new": 173,
+      "variacion_mensual_pct": -4.9
+    }
+  ]
+}

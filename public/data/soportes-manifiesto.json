@@ -1,0 +1,54 @@
+{
+  "fecha": "2026-10-02",
+  "nota": "Copias exactas para respaldo; los bytes coinciden con la fuente indicada.",
+  "archivos": [
+    {
+      "ruta": "docs/soportes/02_modelo_cro.ipynb",
+      "origen": "notebooks/02_modelo_cro.ipynb",
+      "sha256": "9ae18854254f58418bf124c9b21e073fc8d24b0d0af10e980904aa404b84bbdc",
+      "bytes": 341383
+    },
+    {
+      "ruta": "docs/soportes/03_modelo_cfo.ipynb",
+      "origen": "notebooks/03_modelo_cfo.ipynb",
+      "sha256": "298dbb74c6bb5f9eb7b1fa780ab428c8a8d17af3b38cadd8967697677fa5f315",
+      "bytes": 110018
+    },
+    {
+      "ruta": "docs/soportes/coherencia.sql",
+      "origen": "sql/cro/coherencia.sql",
+      "sha256": "9eb4301689ad38826a94d814eeac4495df26ea56536cb1f6b4175f13524adcb9",
+      "bytes": 1078
+    },
+    {
+      "ruta": "docs/soportes/modelo-cfo-demo.md",
+      "origen": "docs/datos/modelo-cfo-demo.md",
+      "sha256": "272ac916235f1e579dc89238dc721500fdf0971f18cd75d588741c20fc38b2a2",
+      "bytes": 7594
+    },
+    {
+      "ruta": "docs/soportes/modelo-cro-demo.md",
+      "origen": "docs/datos/modelo-cro-demo.md",
+      "sha256": "60094580edee440cbf577c88dea37442c3a59e6ff4951833d7a83a55a8d0d657",
+      "bytes": 9975
+    },
+    {
+      "ruta": "docs/soportes/puente.sql",
+      "origen": "sql/cfo/puente.sql",
+      "sha256": "0a3f1e4986450ec3adac5e82e0b516951ded08a717b3e9c53a2d701ba91ee820",
+      "bytes": 782
+    },
+    {
+      "ruta": "docs/soportes/validacion-cfo.json",
+      "origen": "resultados/cfo/validacion.json",
+      "sha256": "1f913f278746dbf08ba8715adb68125f9ba938196d146acfb56fa98ae944e942",
+      "bytes": 2133
+    },
+    {
+      "ruta": "docs/soportes/validacion-cro.json",
+      "origen": "resultados/cro/validacion.json",
+      "sha256": "0d62893afe789e8314c6d6fdb4d077715be599796b346ba48c7ffa89a2e79065",
+      "bytes": 1761
+    }
+  ]
+}

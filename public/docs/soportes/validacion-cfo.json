@@ -1,0 +1,33 @@
+{
+  "validacion": "correcta",
+  "pruebas_cfo": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 10.037s\n\nOK",
+  "csv_con_hash": 96,
+  "graficas_html": 43,
+  "celdas_ejecutadas": 8,
+  "residuo_puente": 0,
+  "recorrido_verificado": true,
+  "hashes_recorrido": {
+    "resultados/cfo/metricas/principal/focos.csv": "424becb44aab0f0def6c28bfcf352d14314f7da32e111c86d3bf8da057454799",
+    "resultados/cfo/metricas/principal/recorrido.json": "d55095306cf1c632a9e3fba0a706cc70dd56206a8fa4486d098555cbf17f30c8",
+    "resultados/cfo/metricas/positivo/focos.csv": "41ba57afd6f403ae3bbade3196fdc050fa28c7d20532361967c8b7dc5734712b",
+    "resultados/cfo/metricas/positivo/recorrido.json": "61fb17ef14615d7b664248584639c97f8e27a9b8fa73b5e247787f0c7f137822",
+    "resultados/cfo/metricas/negativo/focos.csv": "5d5798240c9616a9321d694b477a4525543007cb4a2d1d30580334d92f72495c",
+    "resultados/cfo/metricas/negativo/recorrido.json": "ebd531026be4a9412b34024eeab3a9f94a722dbae17e84a9dbb7cac525664239",
+    "resultados/cfo/metricas/compensado/focos.csv": "33c4113efa1014c0c115a5f31ecb93c5d4c957373cb6ef9f83da093f3b4b22dd",
+    "resultados/cfo/metricas/compensado/recorrido.json": "0e54007c7c4f9c84f2d68996c0a5156f2c112d734f5ca7a245a3263067931c94"
+  },
+  "escenario_principal": "principal",
+  "delta_principal": -150000,
+  "fuente_original_sha256": {
+    "inputs/Industry.csv": "b4330fc6d7df60429849b3b176746f5389c65931f281308eb8224c8efd440ff5",
+    "inputs/README.md": "bfc866c9b7f76ac9e6ecf93d41f802f92cfd829981512692381af6f71bac1015",
+    "inputs/S&M_spend.csv": "41fbb6499f2b0ad4565ccc0e96ec490c72599e15fd46d64086fd98e3443c4c13",
+    "inputs/Transactions.csv": "2dcbe59e9ac497c441f3c019963b11e9848ce4916e5773d257a36f83d953ae95"
+  },
+  "limites": [
+    "Demo sintética; referencia pareada, no contrafactual conocido ni utilidad.",
+    "Sin tendencia diferencial simulada; se usa referencia, sin 5% arbitrario.",
+    "LTV estacionario no estimable cuando churn cero; permanencia observada y censurada.",
+    "Revisión visual y de conclusiones por el candidato pendiente."
+  ]
+}

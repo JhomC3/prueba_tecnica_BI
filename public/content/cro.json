@@ -1,0 +1,1357 @@
+{
+  "id": "cro",
+  "titulo": "Caso CRO — crecimiento del funnel comercial",
+  "decisor": "CRO",
+  "estado": "en_revision",
+  "requerimiento_original": {
+    "texto": "Aumentamos bastante el volumen en las primeras etapas del funnel, especialmente en New, pero los clientes nuevos no están creciendo al mismo ritmo. Marketing dice que está trayendo más demanda. Sales dice que la calidad bajó. Otros creen que atendemos lento o que el problema está después de SQL. Además, hay usuarios que pagan directamente desde producto, otros entran casi directo a SQL y otros pueden durar semanas en una etapa. Hoy vemos volúmenes y conversiones, pero no tenemos una lectura suficientemente clara de dónde estamos perdiendo crecimiento ni por qué.",
+    "fuente": "docs/casos/cro.md"
+  },
+  "componentes": [
+    {
+      "numero": 1,
+      "nombre": "Quién decide",
+      "pregunta_marco": "¿Quién usa el análisis y ejecuta la decisión?",
+      "respuesta": "El CRO. Revisar primero datos y definiciones; preguntar solo lo que cambie la decisión y no pueda resolverse con evidencia.",
+      "estado": "disponible",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §1",
+        "nota": "Decisión inferida, todavía en discusión."
+      }
+    },
+    {
+      "numero": 2,
+      "nombre": "Decisión y éxito",
+      "pregunta_marco": "¿Qué decide y cómo sabremos si fue útil?",
+      "respuesta": "Decidir qué acciones priorizar y en qué etapas o rutas intervenir para mejorar la conversión a nuevos clientes pagadores. Éxito inicial: elegir una intervención fundamentada, con responsable y seguimiento. Meta, horizonte y restricciones pendientes de evidencia.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §2",
+        "nota": "Intervención concreta pendiente de diagnóstico."
+      }
+    },
+    {
+      "numero": 3,
+      "nombre": "Necesidad real",
+      "pregunta_marco": "¿Qué necesita saber para elegir?",
+      "respuesta": "Comprobar cómo se compara el crecimiento de New y Won; distinguir menor conversión, mayor tiempo hasta el cierre y cambios en las entradas que originan los cierres. Después localizar etapas y segmentos afectados y revisar calidad y atención.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §3",
+        "nota": "Todavía no sabemos si cayó la conversión."
+      }
+    },
+    {
+      "numero": 4,
+      "nombre": "Preguntas analíticas",
+      "pregunta_marco": "¿Qué responder con datos?",
+      "respuesta": "Once preguntas priorizadas con enfoque en desempeño por etapa, periodo y segmento (ver sección Preguntas analíticas). IDs y eventos individuales sirven para calcular tasas y tiempos.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §4",
+        "nota": "Propuesta para revisar con el candidato."
+      }
+    },
+    {
+      "numero": 5,
+      "nombre": "Definiciones y métricas",
+      "pregunta_marco": "¿Cómo medir cada concepto?",
+      "respuesta": "Métricas aceptadas el 2026-09-30: entradas, conversión de etapa, pérdidas y pendientes, primer contacto, cobertura y puntualidad, contacto efectivo, permanencia y antigüedad, calidad de entrada, motivos de pérdida, nuevos pagadores, tiempo New → Won, conversión New → Won por cohorte y origen temporal de cierres. Unidad, ventanas, plazo y criterios ilustrativos fijados para la demo; reglas reales sin confirmar.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §5 y docs/datos/modelo-cro-demo.md",
+        "nota": null
+      }
+    },
+    {
+      "numero": 6,
+      "nombre": "Datos necesarios",
+      "pregunta_marco": "¿Qué información hace falta?",
+      "respuesta": "Identidad y eventos de entrada y salida por etapa incluido Won; ruta, canal, perfil y criterios de calidad; asignación, contactos e interacciones; motivos de pérdida; pagos vinculados a las mismas entidades. Industry aporta industria; ruta, canal y calificación faltan en los CSV.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "propuesta",
+        "referencia": "docs/casos/cro.md §6",
+        "nota": null
+      }
+    },
+    {
+      "numero": 7,
+      "nombre": "Disponibilidad, calidad y modelo",
+      "pregunta_marco": "¿Qué responden los datos actuales y coinciden con el origen?",
+      "respuesta": "Inspección técnica ejecutada, revisión humana pendiente. Conciliación contra el sistema de origen pendiente: los hashes solo comprueban integridad. Los pagos no equivalen a eventos Won ni contienen fechas de ingreso al funnel.",
+      "estado": "en_revision",
+      "evidencia": {
+        "tipo": "datos_reto",
+        "referencia": "docs/datos/inspeccion.md",
+        "nota": "No validar joins ni definiciones comerciales con lo actual."
+      }
+    },
+    {
+      "numero": 8,
+      "nombre": "Hipótesis y comprobación",
+      "pregunta_marco": "¿Qué explicaciones contrastar?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 9,
+      "nombre": "Análisis",
+      "pregunta_marco": "¿Qué ocurre, dónde, a quién y desde cuándo?",
+      "respuesta": "Recorrido publicado C01–C05 con 12 figuras del escenario referencia (notebook final 987c30a9). Estado anterior de preparación: solo la primera pregunta tenía figura acordada y las figuras 3.2–3.11 estaban por acordar una por una; ese inventario queda sustituido por el recorrido actual.",
+      "estado": "disponible",
+      "evidencia": {
+        "tipo": "datos_sinteticos",
+        "referencia": "resultados/cro/metricas/referencia/",
+        "nota": "Datos sintéticos, escenario referencia."
+      }
+    },
+    {
+      "numero": 10,
+      "nombre": "Diagnóstico",
+      "pregunta_marco": "¿Qué explica los hallazgos?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 11,
+      "nombre": "Acción de negocio",
+      "pregunta_marco": "¿Qué hacer y cómo comprobar su efecto?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 12,
+      "nombre": "Solución analítica",
+      "pregunta_marco": "¿Qué herramienta apoya la decisión y acción?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    },
+    {
+      "numero": 13,
+      "nombre": "Evaluación y aprendizaje",
+      "pregunta_marco": "¿Permite decidir y qué debemos ajustar?",
+      "respuesta": null,
+      "estado": "pendiente",
+      "evidencia": null
+    }
+  ],
+  "preguntas": [
+    {
+      "id": "cro-3.1",
+      "pregunta": "¿Cuánto creció New, frente a qué periodo y en qué segmentos?",
+      "que_medimos": "Cuánto cambian las entradas a New frente a un periodo de referencia y en qué segmentos ocurre.",
+      "alcance": "Total general y canales, mes frente al anterior (enero–agosto de 2026). Región y otros segmentos se revisarán si aportan diferencias relevantes; todavía no se ha completado toda la segmentación.",
+      "metrica_formula": "Variación mensual: (New del mes − New del mes anterior) / New del mes anterior × 100.",
+      "datos": "Cuentas que entraron por New, fecha de entrada y atributos del segmento.",
+      "calculo": {
+        "descripcion": "Serie total del escenario referencia: 127, 124, 132, 133, 179, 183, 182, 173. Mayo frente a abril: (179 − 133) / 133 × 100 = +34,6 %.",
+        "fuente": "resultados/cro/metricas/referencia/demanda.csv (segmento total)"
+      },
+      "figura": {
+        "id": "new-serie",
+        "titulo": "Entradas a New por mes",
+        "datos_src": "data/new_serie_referencia.json",
+        "iframe_src": "charts/01_new_tendencia.html",
+        "tabla": {
+          "caption": "Entradas a New por mes de entrada (misma serie de la figura)",
+          "columnas": [
+            {
+              "campo": "mes",
+              "etiqueta": "Mes"
+            },
+            {
+              "campo": "entradas_new",
+              "etiqueta": "Entradas a New",
+              "formato": "entero"
+            },
+            {
+              "campo": "variacion_mensual_pct",
+              "etiqueta": "Variación mensual",
+              "formato": "pct1",
+              "nulo": "Sin comparación anterior"
+            }
+          ]
+        }
+      },
+      "estado": "en_revision",
+      "lectura": "El mayor aumento mensual de New ocurrió entre abril y mayo: pasó de 133 a 179 entradas (+34,6 %). Entre mayo y agosto, las entradas oscilaron entre 173 y 183 por mes."
+    },
+    {
+      "id": "cro-3.2",
+      "pregunta": "¿Cómo compara el CRO New y Won: totales del mismo mes o seguimiento de las mismas entradas?",
+      "que_medimos": "Qué porcentaje de los New de cada mes llega a Won dentro de 30 días desde su entrada.",
+      "alcance": "Total general y canales, de enero a agosto, por mes de entrada a New, con 30 días completos de seguimiento. Plazo de 30 días porque la mediana de New a Won entre los ganados del escenario de referencia es 30 días.",
+      "metrica_formula": "Conversión a 30 días: New del mes que llegó a Won en 30 días / entradas a New del mes × 100.",
+      "datos": "Primera fecha de entrada a New y fecha de Won de la misma cuenta.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.3",
+      "pregunta": "¿Cambió la conversión y, si cayó, en qué transición?",
+      "que_medimos": "Qué porcentaje pasa de cada etapa a la siguiente y cómo cambia en el tiempo.",
+      "alcance": "Total general y canales, por etapa y mes de entrada, con 30 días completos de seguimiento. El plazo es una comparación inicial revisable.",
+      "metrica_formula": "Conversión por etapa: cuentas que avanzan a la siguiente etapa dentro del plazo / cuentas con ese plazo completo de seguimiento × 100.",
+      "datos": "Registros de etapas y catálogo: cuenta, etapa, entrada, salida, destino y resultado.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.4",
+      "pregunta": "¿Marketing trae más demanda frente al histórico?",
+      "que_medimos": "Cuánto cambia la demanda procedente de Marketing y dónde ocurre.",
+      "alcance": "Total de Marketing, canales y campañas, mes a mes. La demo agrupa Marketing pago y Orgánico como demanda de Marketing.",
+      "metrica_formula": "Variación mensual: (captaciones de Marketing del mes − captaciones del mes anterior) / captaciones del mes anterior × 100.",
+      "datos": "Cuentas: fecha de captación, canal y campaña.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.5",
+      "pregunta": "¿Cambió la calidad de los leads o el criterio para calificarlos?",
+      "que_medimos": "Si cambió la proporción que cumple los criterios de calidad o la forma de evaluarla.",
+      "alcance": "Total general y canales, por mes y con criterios v1. Los criterios de la demo son ilustrativos.",
+      "metrica_formula": "Calidad y evaluación: calificados / evaluados × 100; evaluados / prospectos × 100. Descalificaciones por motivo.",
+      "datos": "Cuentas: perfil, necesidad, intención, fecha de evaluación, versión de criterios, resultado y motivo de descalificación.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.6",
+      "pregunta": "¿Cambió la rapidez o cobertura de atención y seguimiento?",
+      "que_medimos": "Cuánto tarda la atención y qué proporción recibe intentos de contacto y contacto efectivo.",
+      "alcance": "Global por etapa y desglose por canal. El plazo de atención de 2 días es ilustrativo y está pendiente de validar.",
+      "metrica_formula": "Mediana y percentil 90 de primer intento − entrada a la etapa; mediana de asignación − entrada. Porcentajes: visitas con intento / visitas × 100; visitas con contacto efectivo / visitas con intento × 100; visitas atendidas en 2 días / visitas con 2 días completos de seguimiento × 100.",
+      "datos": "Registros de etapas e interacciones: entrada, asignación, fecha del intento y resultado del contacto.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.7",
+      "pregunta": "¿Se deterioró el avance después de SQL?",
+      "que_medimos": "Si cambió la conversión después de SQL y en cuál transición.",
+      "alcance": "SQL → Demo, Demo → Proposal y Proposal → Won, globalmente y por canal, con 30 días completos de seguimiento.",
+      "metrica_formula": "Conversión y pérdidas: avances a la siguiente etapa dentro del plazo / entradas con seguimiento completo × 100; pérdidas por transición y motivo; abiertos al corte / entradas × 100.",
+      "datos": "Registros de etapas y catálogo: cuenta, entrada, salida, siguiente etapa, destino, resultado y motivo de pérdida.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.8",
+      "pregunta": "¿Cómo contribuye cada ruta al crecimiento total?",
+      "que_medimos": "Qué volumen, cierres y nuevos pagadores aporta cada tipo de entrada.",
+      "alcance": "Total general y tipos de entrada: New, directa a SQL y desde producto. Cierres y pagos se miden por separado; conversión a primer pago a 30 días.",
+      "metrica_formula": "Conteo de captaciones, primeros Won y nuevos pagadores por tipo de entrada; nuevos pagadores dentro del plazo / captados sin pago previo con seguimiento completo × 100.",
+      "datos": "Cuentas, registros de etapas y pagos: tipo y fecha de entrada, fecha de Won, primer pago válido e historial de pagos.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.9",
+      "pregunta": "¿Se acumulan casos lentos o todavía no tuvieron tiempo de avanzar?",
+      "que_medimos": "Cuánto duran las estancias terminadas y cuánto llevan los casos todavía abiertos.",
+      "alcance": "Todas las etapas, meses y canales, separando casos terminados y abiertos al corte.",
+      "metrica_formula": "Mediana y percentil 90 de salida − entrada para estancias terminadas; de fecha de corte − entrada para abiertos. Abiertos / entradas × 100.",
+      "datos": "Registros de etapas: cuenta, etapa, entrada, salida, estado y fecha de corte.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.10",
+      "pregunta": "¿Se convierten menos o tardan más? ¿Los cierres vienen de entradas antiguas acumuladas?",
+      "que_medimos": "Si disminuyó la conversión, aumentó el tiempo hasta Won o los cierres provienen de entradas anteriores.",
+      "alcance": "Total general y canales a 30, 60 y 90 días; solo meses con seguimiento completo para cada plazo. Los cierres se desglosan por mes de entrada a New.",
+      "metrica_formula": "New que llegó a Won dentro del plazo / New con seguimiento completo × 100; mediana y percentil 90 de Won − primera entrada a New entre ganados; conteo de abiertos y de cierres por mes de entrada.",
+      "datos": "Cuentas y registros de etapas: primera entrada a New, fecha de Won, estado y fecha de corte.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    },
+    {
+      "id": "cro-3.11",
+      "pregunta": "¿Qué freno tiene mayor impacto potencial en nuevos pagadores?",
+      "que_medimos": "Qué etapas o segmentos presentan mayor brecha de conversión y más casos afectados.",
+      "alcance": "Total y canales, enero–abril frente a mayo–agosto, con avance a 30 días. El impacto real en nuevos pagadores sigue pendiente.",
+      "metrica_formula": "Brecha: conversión reciente − conversión base, en puntos porcentuales; máximo(0, entradas recientes × conversión base / 100 − avances recientes). Estimación de avances, no de pagadores garantizados.",
+      "datos": "Registros de etapas, segmentos de cuentas y pagos: entradas y avances por periodo, primer pago válido e historial previo.",
+      "calculo": null,
+      "figura": null,
+      "figura_pendiente": true,
+      "estado": "en_revision",
+      "lectura": null
+    }
+  ],
+  "nota_cierre": "Demostración con datos sintéticos del escenario referencia; ocho tablas: detalle en docs/datos/modelo-cro-demo.md. Diagnóstico, intervención y efecto causal pendientes.",
+  "recorrido": {
+    "pregunta_principal": "¿La tasa de conversión de New a Won aumentó o disminuyó después del aumento de New?",
+    "proposito": "Comprobar cuánto creció New, seguir las mismas entradas hasta Won, localizar dónde cambió el avance y proponer acciones con seguimiento.",
+    "alcance": "Cuentas que entraron por New; SQL directo y producto se estudian por separado al explicar crecimiento total, no dentro de New→Won. Demostración con datos sintéticos; Won es cierre comercial, no pago. Comparación abril–mayo y evolución observada, no efecto causal.",
+    "capitulos": [
+      {
+        "id": "C01",
+        "pregunta_literal": "¿Cuánto creció New, frente a qué periodo y en qué segmentos?",
+        "que_medimos": "Cuánto cambian las entradas a New frente a un periodo de referencia y en qué segmentos ocurre.",
+        "alcance": "Total general y canales, mes frente al anterior (enero–agosto de 2026).",
+        "justificacion_plazo": "Mes frente al anterior; mayor aumento abril–mayo como referencia del caso.",
+        "metrica_formula": "(New del mes − New del mes anterior) / New del mes anterior × 100.",
+        "datos": "Cuentas que entraron por New, fecha de entrada y canal. Fuente: resultados/cro/metricas/referencia/demanda.csv.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "C01-total",
+            "figura": {
+              "id": "C01-total",
+              "titulo": "¿Cuánto aumentó New?",
+              "iframe_src": "charts/cro-story/c01-new-total.html"
+            },
+            "conclusion": "Se confirma un crecimiento de New entre abril y mayo: pasó de 133 a 179 entradas (+34,6%). Fue el mayor aumento mensual del periodo analizado. Entre mayo y agosto, las entradas oscilaron entre 173 y 183 por mes.",
+            "siguiente_analisis": "Más entradas no determina cuántas llegan a Won; seguimos las mismas cuentas hasta Won.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Entradas a New por mes de entrada",
+              "plegada": true,
+              "resumen": "Valores de la gráfica",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes"
+                },
+                {
+                  "campo": "entradas",
+                  "etiqueta": "Entradas a New"
+                },
+                {
+                  "campo": "variacion",
+                  "etiqueta": "Variación mensual (%)"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2026-01",
+                  "entradas": "127",
+                  "variacion": "—"
+                },
+                {
+                  "mes": "2026-02",
+                  "entradas": "124",
+                  "variacion": "-2,4"
+                },
+                {
+                  "mes": "2026-03",
+                  "entradas": "132",
+                  "variacion": "6,5"
+                },
+                {
+                  "mes": "2026-04",
+                  "entradas": "133",
+                  "variacion": "0,8"
+                },
+                {
+                  "mes": "2026-05",
+                  "entradas": "179",
+                  "variacion": "34,6"
+                },
+                {
+                  "mes": "2026-06",
+                  "entradas": "183",
+                  "variacion": "2,2"
+                },
+                {
+                  "mes": "2026-07",
+                  "entradas": "182",
+                  "variacion": "-0,5"
+                },
+                {
+                  "mes": "2026-08",
+                  "entradas": "173",
+                  "variacion": "-4,9"
+                }
+              ]
+            }
+          },
+          {
+            "id": "C01-canal",
+            "figura": {
+              "id": "C01-canal",
+              "titulo": "New por canal",
+              "iframe_src": "charts/cro-story/c01-new-canal.html"
+            },
+            "conclusion": "De abril a mayo, las entradas a New aumentaron en todos los canales (Orgánico +85,3%; Marketing pago +9,3%; Referidos +26,7%). Este aumento fue compartido; por ese criterio, no hay motivo para excluir ningún canal del análisis de conversión.",
+            "siguiente_analisis": "Todos los canales aumentan; ninguno se excluye del seguimiento a Won.",
+            "visibilidad": "detalle",
+            "tabla": null
+          }
+        ]
+      },
+      {
+        "id": "C02",
+        "pregunta_literal": "¿Cómo entendemos la relación entre New y Won?",
+        "que_medimos": "Primero el tiempo observado de New a Won; después, qué porcentaje de cada cohorte New llegó a Won dentro de ese plazo.",
+        "alcance": "Total general y canales, enero a agosto de 2026, con 30 días completos de seguimiento. Se conserva el plazo histórico de 30 días (mediana enero–abril) para comparar abril y mayo.",
+        "justificacion_plazo": "Mediana de 32 días general (432 ganados) y 30 días entre enero y abril; se mantiene 30 como ventana histórica común.",
+        "metrica_formula": "mediana(fecha de Won − primera fecha de New), en días; conversión a 30 días: New del mes que llegó a Won en 30 días / entradas a New del mes × 100.",
+        "datos": "Primera entrada a New y fecha de Won de la misma cuenta; ganados.csv y cohortes.csv.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "C02-mediana",
+            "figura": {
+              "id": "C02-mediana",
+              "titulo": "Tiempo de New a Won por mes de entrada · 2026",
+              "iframe_src": "charts/cro-story/c02-mediana.html"
+            },
+            "conclusion": "La mediana de New a Won es 32 días en general (enero–agosto, 432 cuentas) y 30 días entre enero y abril (178 cuentas). Mantenemos ese plazo histórico de 30 para comparar abril y mayo: distingue la mediana previa de 30 de la general actual de 32 (que incluye la demora May+) y conserva 30/60/90 y meses maduros.",
+            "siguiente_analisis": "Con 30 días como ventana común, medimos qué porcentaje de cada cohorte New llegó a Won dentro del plazo.",
+            "visibilidad": "detalle",
+            "tabla": {
+              "caption": "Cuentas que llegaron a Won y mediana por mes de entrada",
+              "plegada": true,
+              "resumen": "Valores de la gráfica",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes de entrada a New"
+                },
+                {
+                  "campo": "cuentas",
+                  "etiqueta": "Cuentas que llegaron a Won"
+                },
+                {
+                  "campo": "mediana",
+                  "etiqueta": "Mediana (días)"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2026-01",
+                  "cuentas": "38",
+                  "mediana": "29,5"
+                },
+                {
+                  "mes": "2026-02",
+                  "cuentas": "42",
+                  "mediana": "31,0"
+                },
+                {
+                  "mes": "2026-03",
+                  "cuentas": "50",
+                  "mediana": "29,0"
+                },
+                {
+                  "mes": "2026-04",
+                  "cuentas": "48",
+                  "mediana": "29,5"
+                },
+                {
+                  "mes": "2026-05",
+                  "cuentas": "61",
+                  "mediana": "35,0"
+                },
+                {
+                  "mes": "2026-06",
+                  "cuentas": "65",
+                  "mediana": "34,0"
+                },
+                {
+                  "mes": "2026-07",
+                  "cuentas": "58",
+                  "mediana": "33,5"
+                },
+                {
+                  "mes": "2026-08",
+                  "cuentas": "70",
+                  "mediana": "32,0"
+                }
+              ]
+            }
+          },
+          {
+            "id": "C02-conv-total",
+            "figura": {
+              "id": "C02-conv-total",
+              "titulo": "Porcentaje de New a Won en 30 días",
+              "iframe_src": "charts/cro-story/c02-conversion-total.html"
+            },
+            "conclusion": "De abril a mayo, la conversión New → Won en 30 días bajó de 21,1% a 6,7%.",
+            "siguiente_analisis": "La tasa a 30 días no es conversión final; revisamos calidad antes de localizar etapas.",
+            "visibilidad": "primaria",
+            "tabla": null
+          },
+          {
+            "id": "C02-conv-canal",
+            "figura": {
+              "id": "C02-conv-canal",
+              "titulo": "New → Won en 30 días, por canal",
+              "iframe_src": "charts/cro-story/c02-conversion-canal.html"
+            },
+            "conclusion": "Marketing pago: 24,1% → 3,4%; Orgánico: 17,6% → 6,3%; Referidos: 20,0% → 10,5%. En los meses posteriores hubo variaciones, pero la conversión global permaneció por debajo de abril. Revisamos las etapas en todos los canales, manteniendo el desglose para localizar dónde cambió la conversión.",
+            "siguiente_analisis": "Los canales difieren; no se selecciona uno sin criterio. Seguimos todos al localizar niveles.",
+            "visibilidad": "primaria",
+            "tabla": null
+          }
+        ]
+      },
+      {
+        "id": "C03",
+        "pregunta_literal": "¿Cambió la calidad de los leads o el criterio para calificarlos?",
+        "que_medimos": "Si cambió la puntuación media de los leads que entraron por New.",
+        "alcance": "Enero a agosto de 2026, global y por canal; comparación abril–mayo y evolución posterior.",
+        "justificacion_plazo": "Mismo periodo de cohortes para comparar con conversión.",
+        "metrica_formula": "suma de puntuaciones / número de New con puntuación.",
+        "datos": "dim_cuentas.csv y puntuaciones_leads.csv (aleatorias 0–100, reproducibles; no calidad real).",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "C03-global",
+            "figura": {
+              "id": "C03-global",
+              "titulo": "Puntuación media de los New · 2026",
+              "iframe_src": "charts/cro-story/c03-calidad-global.html"
+            },
+            "conclusion": "De abril a mayo, la puntuación media subió de 46,5 a 53,4 sobre 100. Las medias mensuales oscilan entre 46,5 y 53,4. Son puntuaciones aleatorias: no permiten atribuir la caída de conversión a calidad. Revisamos las etapas.",
+            "siguiente_analisis": "Calidad aleatoria no confirma ni descarta causa real; localizamos dónde cambió el avance y pedimos scoring comparable real si existe.",
+            "visibilidad": "primaria",
+            "tabla": null
+          },
+          {
+            "id": "C03-canal",
+            "figura": {
+              "id": "C03-canal",
+              "titulo": "Puntuación media de los New por canal · 2026",
+              "iframe_src": "charts/cro-story/c03-calidad-canal.html"
+            },
+            "conclusion": "De abril a mayo, la puntuación media subió de 46,5 a 53,4 sobre 100. Las medias mensuales oscilan entre 46,5 y 53,4. Son puntuaciones aleatorias: no permiten atribuir la caída de conversión a calidad. Revisamos las etapas.",
+            "siguiente_analisis": "Mismo alcance por canal; sin inferir estabilidad de calidad en otras etapas.",
+            "visibilidad": "detalle",
+            "tabla": null
+          }
+        ]
+      },
+      {
+        "id": "C04",
+        "pregunta_literal": "¿Cambió la conversión y, si cayó, en qué transición?",
+        "que_medimos": "Hasta qué nivel avanzaron los mismos New analizados en 3.2.",
+        "alcance": "Grupos por mes de primera entrada a New; abril como referencia y mayo–agosto de 2026. Global y por canal en las dos mayores caídas.",
+        "justificacion_plazo": "30 días desde la primera entrada a New para todas las etapas; el reloj nunca se reinicia. Mismo plazo histórico de 3.2.",
+        "metrica_formula": "cuentas que alcanzaron o superaron el siguiente nivel / cuentas que alcanzaron o superaron el nivel actual × 100.",
+        "datos": "Cuentas únicas, registros de etapas y catálogo; consulta sql/cro/coherencia.sql. Saltos cuentan como nivel superado; atención y duración solo usan visitas reales.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "C04-global",
+            "figura": {
+              "id": "C04-global",
+              "titulo": "Conversión por nivel · 30 días desde New",
+              "iframe_src": "charts/cro-story/c04-niveles-global.html"
+            },
+            "conclusion": "De abril a mayo: • Demo → Proposal: 76,2% → 61,8%. • Proposal → Won: 58,3% → 19,0%. Por sus mayores caídas, priorizamos Demo → Proposal, Proposal → Won para investigar las causas.",
+            "siguiente_analisis": "Criterio: mayores caídas abril–mayo. Examinamos volumen frente a capacidad y tiempos en esos focos.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Cuentas y tasas conciliadas con 3.2",
+              "plegada": true,
+              "resumen": "Cálculo verificado",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes de New"
+                },
+                {
+                  "campo": "nivel",
+                  "etiqueta": "Nivel"
+                },
+                {
+                  "campo": "en_nivel",
+                  "etiqueta": "Cuentas en el nivel"
+                },
+                {
+                  "campo": "al_siguiente",
+                  "etiqueta": "Cuentas en el siguiente nivel"
+                },
+                {
+                  "campo": "tasa",
+                  "etiqueta": "Conversión (%)"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2026-04",
+                  "nivel": "New",
+                  "en_nivel": "133",
+                  "al_siguiente": "127",
+                  "tasa": "95,5"
+                },
+                {
+                  "mes": "2026-04",
+                  "nivel": "Working",
+                  "en_nivel": "127",
+                  "al_siguiente": "103",
+                  "tasa": "81,1"
+                },
+                {
+                  "mes": "2026-04",
+                  "nivel": "Engaged",
+                  "en_nivel": "103",
+                  "al_siguiente": "90",
+                  "tasa": "87,4"
+                },
+                {
+                  "mes": "2026-04",
+                  "nivel": "SQL",
+                  "en_nivel": "90",
+                  "al_siguiente": "63",
+                  "tasa": "70,0"
+                },
+                {
+                  "mes": "2026-04",
+                  "nivel": "Demo",
+                  "en_nivel": "63",
+                  "al_siguiente": "48",
+                  "tasa": "76,2"
+                },
+                {
+                  "mes": "2026-04",
+                  "nivel": "Proposal",
+                  "en_nivel": "48",
+                  "al_siguiente": "28",
+                  "tasa": "58,3"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "New",
+                  "en_nivel": "179",
+                  "al_siguiente": "167",
+                  "tasa": "93,3"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "Working",
+                  "en_nivel": "167",
+                  "al_siguiente": "138",
+                  "tasa": "82,6"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "Engaged",
+                  "en_nivel": "138",
+                  "al_siguiente": "122",
+                  "tasa": "88,4"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "SQL",
+                  "en_nivel": "122",
+                  "al_siguiente": "102",
+                  "tasa": "83,6"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "Demo",
+                  "en_nivel": "102",
+                  "al_siguiente": "63",
+                  "tasa": "61,8"
+                },
+                {
+                  "mes": "2026-05",
+                  "nivel": "Proposal",
+                  "en_nivel": "63",
+                  "al_siguiente": "12",
+                  "tasa": "19,0"
+                }
+              ]
+            }
+          },
+          {
+            "id": "C04-canales",
+            "figura": {
+              "id": "C04-canales",
+              "titulo": "Proposal → Won por canal",
+              "iframe_src": "charts/cro-story/c04-proposal-canal.html"
+            },
+            "conclusion": "Proposal → Won: De abril a mayo, la conversión cayó en los 3 canales, por lo que mantenemos todos para investigar la causa en esta transición.",
+            "siguiente_analisis": "Sin canal único; el tramo 3.5 continúa solo en total, sin canal.",
+            "visibilidad": "detalle",
+            "tabla": null
+          },
+          {
+            "id": "C04-canales-demo",
+            "figura": {
+              "id": "C04-canales-demo",
+              "titulo": "Demo → Proposal por canal",
+              "iframe_src": "charts/cro-story/c04-demo-canal.html"
+            },
+            "conclusion": "Demo → Proposal: De abril a mayo, la conversión cayó en los 3 canales, por lo que mantenemos todos para investigar la causa en esta transición.",
+            "siguiente_analisis": "Mismo criterio; todos los canales se conservan.",
+            "visibilidad": "detalle",
+            "tabla": null
+          }
+        ]
+      },
+      {
+        "id": "C05",
+        "pregunta_literal": "¿Cambió la rapidez o cobertura de atención y seguimiento?",
+        "que_medimos": "Volumen frente a capacidad (carga por persona) y tiempos de atención (mediana al primer intento) en los focos de 3.4.",
+        "alcance": "Etapas Demo y Proposal. Carga por mes calendario de servicio, abril–agosto 2026, sin canal. Demora en las mismas cohortes New de abril–agosto con ventana histórica de 30 días desde New, solo total.",
+        "justificacion_plazo": "Carga y atención usan meses distintos (servicio vs cohortes New) y se conectan por cuenta y etapa; la mediana incluye solo cuentas con intento e informa cuántas tienen medición.",
+        "metrica_formula": "cuentas únicas que ingresan a la etapa en el mes / personal disponible en esa etapa y mes; mediana(primer intento − entrada a la etapa) y cuentas con intento / cuentas con visita.",
+        "datos": "Registros de etapas para llegadas, dim_capacidad para personal e interacciones para intentos. Reingresos una vez por cuenta y etapa; saltos sin visitas ficticias.",
+        "estado": "disponible",
+        "bloques": [
+          {
+            "id": "C05-carga",
+            "figura": {
+              "id": "C05-carga",
+              "titulo": "Cuentas por persona disponible",
+              "iframe_src": "charts/cro-story/c05-carga.html"
+            },
+            "conclusion": "De abril a mayo, la carga por persona aumentó un 55,7% en Demo y un 5,5% en Proposal. Después se mantuvo por encima de abril, con el mismo personal. Revisamos si aumentó la demora de atención.",
+            "siguiente_analisis": "Con la carga localizada, revisamos la demora al primer intento.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Carga por persona: llegadas, personal y carga",
+              "plegada": true,
+              "resumen": "Valores de la gráfica",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes"
+                },
+                {
+                  "campo": "etapa",
+                  "etiqueta": "Etapa"
+                },
+                {
+                  "campo": "llegaron",
+                  "etiqueta": "Llegaron"
+                },
+                {
+                  "campo": "personal",
+                  "etiqueta": "Personal"
+                },
+                {
+                  "campo": "carga",
+                  "etiqueta": "Carga por persona"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2026-04",
+                  "etapa": "Demo",
+                  "llegaron": "79",
+                  "personal": "10",
+                  "carga": "7,9"
+                },
+                {
+                  "mes": "2026-04",
+                  "etapa": "Proposal",
+                  "llegaron": "73",
+                  "personal": "8",
+                  "carga": "9,1"
+                },
+                {
+                  "mes": "2026-05",
+                  "etapa": "Demo",
+                  "llegaron": "123",
+                  "personal": "10",
+                  "carga": "12,3"
+                },
+                {
+                  "mes": "2026-05",
+                  "etapa": "Proposal",
+                  "llegaron": "77",
+                  "personal": "8",
+                  "carga": "9,6"
+                },
+                {
+                  "mes": "2026-06",
+                  "etapa": "Demo",
+                  "llegaron": "123",
+                  "personal": "10",
+                  "carga": "12,3"
+                },
+                {
+                  "mes": "2026-06",
+                  "etapa": "Proposal",
+                  "llegaron": "106",
+                  "personal": "8",
+                  "carga": "13,2"
+                },
+                {
+                  "mes": "2026-07",
+                  "etapa": "Demo",
+                  "llegaron": "117",
+                  "personal": "10",
+                  "carga": "11,7"
+                },
+                {
+                  "mes": "2026-07",
+                  "etapa": "Proposal",
+                  "llegaron": "104",
+                  "personal": "8",
+                  "carga": "13,0"
+                },
+                {
+                  "mes": "2026-08",
+                  "etapa": "Demo",
+                  "llegaron": "113",
+                  "personal": "10",
+                  "carga": "11,3"
+                },
+                {
+                  "mes": "2026-08",
+                  "etapa": "Proposal",
+                  "llegaron": "93",
+                  "personal": "8",
+                  "carga": "11,6"
+                }
+              ]
+            }
+          },
+          {
+            "id": "C05-demora",
+            "figura": {
+              "id": "C05-demora",
+              "titulo": "Mediana hasta el primer intento",
+              "iframe_src": "charts/cro-story/c05-demora.html"
+            },
+            "conclusion": "De abril a mayo, la mediana hasta el primer intento de contacto aumentó de 3,0 a 4,0 días en Demo y de 2,0 a 4,0 días en Proposal. En junio, ambas mantuvieron esos tiempos. Después disminuyeron en ambas etapas.",
+            "siguiente_analisis": "La secuencia completa de volumen, capacidad, atención y conversión se resume en la síntesis.",
+            "visibilidad": "primaria",
+            "tabla": {
+              "caption": "Visitas, intentos y mediana por mes de New",
+              "plegada": true,
+              "resumen": "Valores de la gráfica",
+              "columnas": [
+                {
+                  "campo": "mes",
+                  "etiqueta": "Mes de New"
+                },
+                {
+                  "campo": "etapa",
+                  "etiqueta": "Etapa"
+                },
+                {
+                  "campo": "visita",
+                  "etiqueta": "Con visita"
+                },
+                {
+                  "campo": "intento",
+                  "etiqueta": "Con intento"
+                },
+                {
+                  "campo": "mediana",
+                  "etiqueta": "Mediana (días)"
+                }
+              ],
+              "filas": [
+                {
+                  "mes": "2026-04",
+                  "etapa": "Demo",
+                  "visita": "58",
+                  "intento": "41",
+                  "mediana": "3,0"
+                },
+                {
+                  "mes": "2026-04",
+                  "etapa": "Proposal",
+                  "visita": "48",
+                  "intento": "29",
+                  "mediana": "2,0"
+                },
+                {
+                  "mes": "2026-05",
+                  "etapa": "Demo",
+                  "visita": "96",
+                  "intento": "68",
+                  "mediana": "4,0"
+                },
+                {
+                  "mes": "2026-05",
+                  "etapa": "Proposal",
+                  "visita": "63",
+                  "intento": "29",
+                  "mediana": "4,0"
+                },
+                {
+                  "mes": "2026-06",
+                  "etapa": "Demo",
+                  "visita": "91",
+                  "intento": "73",
+                  "mediana": "4,0"
+                },
+                {
+                  "mes": "2026-06",
+                  "etapa": "Proposal",
+                  "visita": "69",
+                  "intento": "20",
+                  "mediana": "4,0"
+                },
+                {
+                  "mes": "2026-07",
+                  "etapa": "Demo",
+                  "visita": "85",
+                  "intento": "64",
+                  "mediana": "3,0"
+                },
+                {
+                  "mes": "2026-07",
+                  "etapa": "Proposal",
+                  "visita": "59",
+                  "intento": "29",
+                  "mediana": "4,0"
+                },
+                {
+                  "mes": "2026-08",
+                  "etapa": "Demo",
+                  "visita": "97",
+                  "intento": "70",
+                  "mediana": "2,0"
+                },
+                {
+                  "mes": "2026-08",
+                  "etapa": "Proposal",
+                  "visita": "67",
+                  "intento": "38",
+                  "mediana": "3,0"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "cierre": {
+      "id": "cierre",
+      "titulo": "Cierre y acciones propuestas",
+      "sintesis": "El volumen aumentó sin ampliar el personal. La atención se hizo más lenta en Demo y Proposal y cayó la conversión de New a Won dentro de 30 días. Esto muestra menor avance en ese plazo, no pérdidas definitivas de clientes.",
+      "acciones": {
+        "id": "C07-acciones",
+        "conclusion": "Se proponen dos refuerzos de capacidad (Demo y Proposal) con responsable Sales propuesto y evaluación en octubre–noviembre de 2026.",
+        "tabla": {
+          "caption": "Hallazgos, acciones propuestas y responsables",
+          "plegada": false,
+          "resumen": "Tabla calculada en el notebook",
+          "columnas": [
+            {
+              "campo": "hallazgo",
+              "etiqueta": "Hallazgo"
+            },
+            {
+              "campo": "accion",
+              "etiqueta": "Acción propuesta"
+            },
+            {
+              "campo": "responsable",
+              "etiqueta": "Responsable"
+            }
+          ],
+          "filas": [
+            {
+              "hallazgo": "Demo: carga 7,9→12,3 y demora 3,0→4,0 días; conversión 76,2%→61,8%.",
+              "accion": "Reforzar capacidad en Demo.",
+              "responsable": "Sales (propuesto)"
+            },
+            {
+              "hallazgo": "Proposal: carga 9,1→9,6 y demora 2,0→4,0 días; conversión 58,3%→19,0%.",
+              "accion": "Reforzar capacidad en Proposal.",
+              "responsable": "Sales (propuesto)"
+            }
+          ]
+        },
+        "evaluacion_comun": "octubre–noviembre de 2026 (corte 2026-12-31, 30 días desde New): ¿bajan demora y carga y sube conversión? mediana primer intento Demo ≤ 3,0 días y Proposal ≤ 2,0 días; carga Demo < 12,3 y Proposal < 9,6 con volumen similar a mayo; conversión Demo→Proposal ≥ 76,2%, Proposal→Won ≥ 58,3% y New→Won ≥ 21,1% (referencia abril)."
+      },
+      "nota": "Causas pendientes; validar registros y definiciones contra el CRM antes de actuar. No se han ejecutado intervenciones ni medido impacto."
+    }
+  },
+  "construccion": {
+    "pregunta": "¿La tasa de conversión de New a Won aumentó o disminuyó después del aumento de New?",
+    "proposito": "Comprobar cuánto creció New, seguir las mismas entradas hasta Won, localizar dónde cambió el avance y proponer acciones con seguimiento.",
+    "resumen": "Los archivos recibidos no traen funnel ni fechas: la demostración usa datos sintéticos del escenario referencia y el recorrido sigue New hasta Won.",
+    "originales": [
+      {
+        "nombre": "Transactions.csv",
+        "estado": "recibido",
+        "descripcion": "Importes mensuales por cliente: columnas ID, month y amount.",
+        "aporta": "Describir importes observados por mes y, tras validar el vínculo entre IDs, por industria.",
+        "limite": "Los pagos no equivalen a eventos Won ni traen fechas del funnel; falta el vínculo comprobado con el CRM y la definición de nuevo pagador.",
+        "descarga": null
+      },
+      {
+        "nombre": "Industry.csv",
+        "estado": "recibido",
+        "descripcion": "Cliente e industria: columnas ID e Industria.",
+        "aporta": "Segmentar cuentas por industria una vez validada la correspondencia de IDs con Transactions.",
+        "limite": "Faltan ruta, canal y calificación; no explica el avance por etapa.",
+        "descarga": null
+      },
+      {
+        "nombre": "S&M_spend.csv",
+        "estado": "recibido",
+        "descripcion": "Gasto mensual de Sales & Marketing por categoría: columna Month más siete categorías, 34 meses (2022-01 a 2024-10).",
+        "aporta": "Contexto agregado del gasto comercial por mes.",
+        "limite": "Moneda y escala sin confirmar; sin atribución por equipo, canal o cliente; varias categorías necesitan definición antes de asignarles función comercial.",
+        "descarga": null
+      }
+    ],
+    "nota_originales": "Archivos recibidos al inicio; se describen sin descarga en la web. Ninguno alimenta los cálculos de la demostración: esta usa datos sintéticos independientes.",
+    "faltante": [
+      {
+        "tema": "Cuentas y origen de entrada",
+        "detalle": "Identidad y eventos de entrada y salida por etapa, incluido Won; canal y tipo de entrada por cuenta."
+      },
+      {
+        "tema": "Historial de etapas con fechas",
+        "detalle": "Entradas y salidas por etapa para medir avance, demoras y reingresos con un reloj común."
+      },
+      {
+        "tema": "Intentos de atención y contacto",
+        "detalle": "Interacciones con tipo, fecha y resultado para explicar atención y avance."
+      },
+      {
+        "tema": "Capacidad disponible",
+        "detalle": "Personal y capacidad mensual por etapa para contrastar carga y demora."
+      },
+      {
+        "tema": "Definiciones y evaluación de calidad",
+        "detalle": "Criterios de calificación, motivos de pérdida y descalificación aplicados por cuenta."
+      },
+      {
+        "tema": "Pagos vinculados",
+        "detalle": "Vínculo comprobado entre los pagos y las mismas cuentas del funnel, con definición de nuevo pagador."
+      }
+    ],
+    "sinteticos": {
+      "etiqueta": "Datos sintéticos de demostración",
+      "escenario": "Escenario referencia del notebook CRO vigente.",
+      "nota": "Tablas independientes de los archivos recibidos; cubren las necesidades listadas arriba. Las tablas extensas se describen sin descarga.",
+      "tablas": [
+        {
+          "archivo": "dim_cuentas.csv",
+          "necesidad": "Cuentas y origen: canal, tipo de entrada, industria y calificación.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "dim_etapas.csv",
+          "necesidad": "Catálogo de etapas del funnel.",
+          "descarga": "data/archivos/cro/dim_etapas.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "fact_etapas.csv",
+          "necesidad": "Historial de pasos por etapa con fechas, estados y motivos de pérdida.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "interacciones.csv",
+          "necesidad": "Intentos de atención: tipo, fecha y resultado.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "dim_capacidad.csv",
+          "necesidad": "Capacidad mensual disponible por etapa.",
+          "descarga": "data/archivos/cro/dim_capacidad.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "puntuaciones_leads.csv",
+          "necesidad": "Evaluación de calidad por cuenta.",
+          "descarga": "data/archivos/cro/puntuaciones_leads.csv",
+          "origen": "fuente"
+        },
+        {
+          "archivo": "pagos.csv",
+          "necesidad": "Pagos vinculados a las cuentas del funnel.",
+          "descarga": null,
+          "origen": "fuente"
+        },
+        {
+          "archivo": "ganados.csv",
+          "necesidad": "Cierres Won con fecha de entrada y de cierre.",
+          "descarga": null,
+          "origen": "derivada",
+          "derivacion": "Vista calculada vw_ganados desde fact_etapas y dim_cuentas; no prueba de primer pago."
+        }
+      ]
+    },
+    "puente": "Con estos datos se construyó la demostración. A partir de aquí continúa el recorrido existente: crecimiento de New, conversión comparable, calidad, niveles, capacidad y acciones."
+  },
+  "respuestas_reto": [
+    {
+      "id": "R-CRO1",
+      "pregunta": "¿Cómo definirías y medirías el funnel si no todos los clientes lo recorren igual (self-serve, entrada directa a SQL, estancamientos de semanas)?",
+      "respuesta": "Recorrido realizado New → Won con cohortes por primera entrada a New y reloj común de 30 días. Propuesta de medición documentada para las demás rutas (no análisis realizado): quien paga desde producto cuenta como nuevo pagador, no como pérdida de etapas que nunca recorrió; quien entra directo a SQL se analiza desde esa entrada y después se reúnen todos los recorridos para explicar el crecimiento total; los abiertos se miden desde la entrada hasta el corte, separados de sin avance en ventana y mostrando cuántos siguen abiertos; un pendiente no es una pérdida.",
+      "evidencia": [
+        {
+          "ancla": "e-plazo",
+          "texto": "Plazo común de 30 días"
+        },
+        {
+          "ancla": "e-conversion",
+          "texto": "Conversión a 30 días"
+        }
+      ]
+    },
+    {
+      "id": "R-CRO2",
+      "pregunta": "¿Dónde y en qué segmentos se concentra la pérdida de crecimiento? ¿Qué métricas propondrías que hoy no existen?",
+      "respuesta": "La caída se concentra en Demo → Proposal (76,2% → 61,8%) y Proposal → Won (58,3% → 19,0%), en los tres canales sin excluir ninguno. Métricas calculadas: entradas, conversión por nivel y cohorte, carga y demora. Propuestas aún no medidas: contacto efectivo y motivos de pérdida.",
+      "evidencia": [
+        {
+          "ancla": "e-transiciones",
+          "texto": "Transiciones priorizadas"
+        },
+        {
+          "ancla": "e-capacidad",
+          "texto": "Carga y demora"
+        }
+      ]
+    },
+    {
+      "id": "R-CRO3",
+      "pregunta": "¿Qué hipótesis explicarían el fenómeno (demanda, calidad, velocidad de atención, conversión post-SQL) y qué datos usarías para validar o descartar cada una?",
+      "respuesta": "Demanda comprobada (New +34,6% abril–mayo); calidad no atribuible (puntuación aleatoria 46,5 → 53,4); atención más lenta con más carga y mismo personal; conversión post-SQL caída en los focos. Para descartar calidad real harían falta scoring comparable, contacto efectivo y motivos de pérdida.",
+      "evidencia": [
+        {
+          "ancla": "e-calidad",
+          "texto": "Hipótesis de calidad"
+        },
+        {
+          "ancla": "e-capacidad",
+          "texto": "Atención y carga"
+        }
+      ]
+    },
+    {
+      "id": "R-CRO4",
+      "pregunta": "¿Qué solución analítica construirías para que el CRO opere el funnel de forma recurrente, y qué decisiones le permitiría tomar?",
+      "respuesta": "Procedimiento propuesto: actualizar cuentas, visitas, interacciones y capacidad cada mes; revisar carga, conversión y atención contra abril; responsable propuesto Sales; decisiones posibles: reforzar capacidad en focos. Cadencia específica por acordar; es procedimiento propuesto, no automatización implementada.",
+      "evidencia": [
+        {
+          "ancla": "cierre",
+          "texto": "Cierre: acción y evaluación"
+        }
+      ]
+    }
+  ],
+  "ejecutiva": {
+    "apertura": {
+      "cita_titular": "Estamos generando más leads, pero no estamos vendiendo más",
+      "pregunta_editorial": "¿Realmente aumentó New y, si aumentó, disminuyó la conversión de New a Won en un mismo plazo?",
+      "pregunta_ref": "recorrido.pregunta_principal",
+      "sintesis_preocupacion": "El volumen crece en New, pero no se convierte en clientes nuevos; hay varias explicaciones posibles y ninguna medición que las separe.",
+      "datos_intro": "Para responder, contamos con:",
+      "datos": [
+        "Importes mensuales por cliente.",
+        "Clientes e industria.",
+        "Gastos mensuales de Sales y Marketing."
+      ],
+      "insuficiencia": "Estos datos no permiten reconstruir las etapas del funnel ni sus tiempos de atención.",
+      "preguntas_rotulo": "Preguntas que priorizamos para el análisis",
+      "preguntas": [
+        {
+          "texto": "¿Realmente aumentó New?",
+          "ref": "C01"
+        },
+        {
+          "texto": "¿Qué plazo usamos para comparar New y Won?",
+          "ref": "C02-mediana"
+        },
+        {
+          "texto": "¿Disminuyó la conversión de New a Won en ese plazo?",
+          "ref": "C02-conv-total"
+        },
+        {
+          "texto": "¿Cambió la calidad de los leads o su calificación?",
+          "ref": "C03"
+        },
+        {
+          "texto": "¿En qué transiciones cambió la conversión?",
+          "ref": "C04"
+        },
+        {
+          "texto": "¿Cambió la capacidad o la rapidez de atención?",
+          "ref": "C05"
+        }
+      ],
+      "necesidad_intro": "Para responder estas preguntas necesitamos:",
+      "necesidad": "Entradas y cambios de etapa con fechas, canal, puntuación y calificación de leads, capacidad e intentos de atención.",
+      "sinteticos_frase": "Para este ejercicio generamos datos sintéticos con esta información.",
+      "puente": "Comenzamos por verificar el aumento de New.",
+      "cita_completa": "Aumentamos bastante el volumen en las primeras etapas del funnel, especialmente en New, pero los clientes nuevos no están creciendo al mismo ritmo. Marketing dice que está trayendo más demanda. Sales dice que la calidad bajó. Otros creen que atendemos lento o que el problema está después de SQL. Además, hay usuarios que pagan directamente desde producto, otros entran casi directo a SQL y otros pueden durar semanas en una etapa. Hoy vemos volúmenes y conversiones, pero no tenemos una lectura suficientemente clara de dónde estamos perdiendo crecimiento ni por qué."
+    },
+    "escenas": [
+      {
+        "id": "e-new",
+        "titulo": "¿Realmente aumentó New?",
+        "transicion": "Entradas a New por mes, enero–agosto de 2026.",
+        "bloques": [
+          "C01-total"
+        ],
+        "detalle": {
+          "titulo": "Desglose por canal",
+          "bloques": [
+            "C01-canal"
+          ]
+        },
+        "limite": "",
+        "puente": "Antes de comparar la conversión, definimos un plazo común de seguimiento."
+      },
+      {
+        "id": "e-plazo",
+        "titulo": "¿Qué plazo usamos para comparar New y Won?",
+        "bloques": [
+          "C02-mediana"
+        ],
+        "sintesis": "32 días entre los ganados de enero–agosto; 30 entre los de enero–abril. Conservamos 30 para comparar abril y mayo con el mismo plazo.",
+        "limite": "Mediana solo entre cuentas que llegaron a Won: 32 días general (432) y 30 días histórica (178). No representa a todos los New ni es conversión final.",
+        "puente": "Con 30 días como plazo común, comparamos qué porcentaje llegó a Won."
+      },
+      {
+        "id": "e-conversion",
+        "titulo": "¿Qué porcentaje de New llegó a Won en 30 días?",
+        "transicion": "Cohortes de abril y mayo, mismo reloj desde New.",
+        "bloques": [
+          "C02-conv-total",
+          "C02-conv-canal"
+        ],
+        "limite": "Menor avance dentro del plazo; no es pérdida definitiva de clientes.",
+        "puente": "Antes de localizar etapas, revisamos si cambió la calidad."
+      },
+      {
+        "id": "e-calidad",
+        "titulo": "¿Cambió la calidad de los leads o su calificación?",
+        "transicion": "Puntuación sintética de 0 a 100.",
+        "bloques": [
+          "C03-global"
+        ],
+        "detalle": {
+          "titulo": "Por canal",
+          "bloques": [
+            "C03-canal"
+          ]
+        },
+        "limite": "Puntuación sintética: no demuestra ni descarta la calidad real.",
+        "puente": "Sin explicación por calidad con estos datos, localizamos en qué transiciones cambió la conversión."
+      },
+      {
+        "id": "e-transiciones",
+        "titulo": "¿En qué transiciones cambió la conversión?",
+        "transicion": "Niveles del funnel a 30 días desde New.",
+        "bloques": [
+          "C04-global"
+        ],
+        "detalle": {
+          "titulo": "Por canal",
+          "bloques": [
+            "C04-canales",
+            "C04-canales-demo"
+          ]
+        },
+        "limite": "Se priorizan por sus mayores caídas.",
+        "puente": "Localizadas las caídas, revisamos capacidad y atención en esos focos."
+      },
+      {
+        "id": "e-capacidad",
+        "titulo": "¿Cambió la capacidad o la rapidez de atención?",
+        "transicion": "Focos Demo y Proposal.",
+        "bloques": [
+          "C05-carga",
+          "C05-demora"
+        ],
+        "limite": "La carga usa mes de servicio; la demora usa cohortes New y solo cuentas con intento. Señales compatibles con presión de capacidad, no prueba de causalidad.",
+        "puente": "Con la evidencia localizada, cerramos con propuesta y seguimiento."
+      }
+    ]
+  },
+  "respaldo": {
+    "etiqueta": "Fuentes, método y respuestas al reto",
+    "definiciones": {
+      "titulo": "Definiciones y límites",
+      "items": [
+        {
+          "termino": "Población",
+          "definicion": "Cuentas que entraron por New; SQL directo y producto quedan fuera de New → Won."
+        },
+        {
+          "termino": "Reloj común",
+          "definicion": "30 días desde la primera entrada a New; cohortes por mes de entrada."
+        },
+        {
+          "termino": "Mediana",
+          "definicion": "Solo entre cuentas que llegaron a Won (32 días general, 30 histórica); no es conversión final."
+        },
+        {
+          "termino": "Niveles",
+          "definicion": "La conversión utiliza niveles alcanzados o superados con el mismo reloj desde New. La atención utiliza visitas reales, sin crear visitas para etapas saltadas."
+        },
+        {
+          "termino": "Límites",
+          "definicion": "Escenario sintético; coincidencia temporal no es causalidad; sin intervención ejecutada ni impacto medido."
+        }
+      ]
+    },
+    "fuentes": {
+      "titulo": "Fuentes y material de soporte",
+      "recibidas": "Transactions.csv (importes mensuales por cliente), Industry.csv (cliente e industria) y S&M_spend.csv (gasto mensual por categoría). No se publican los originales.",
+      "sinteticos": "Escenario referencia del notebook CRO vigente.",
+      "derivadas": "ganados.csv",
+      "descargas": [
+        {
+          "archivo": "dim_etapas.csv",
+          "ruta": "data/archivos/cro/dim_etapas.csv",
+          "descripcion": "Catálogo de etapas del funnel."
+        },
+        {
+          "archivo": "dim_capacidad.csv",
+          "ruta": "data/archivos/cro/dim_capacidad.csv",
+          "descripcion": "Capacidad mensual disponible por etapa."
+        },
+        {
+          "archivo": "puntuaciones_leads.csv",
+          "ruta": "data/archivos/cro/puntuaciones_leads.csv",
+          "descripcion": "Evaluación de calidad por cuenta."
+        }
+      ],
+      "nota": "Descargas parciales para trazabilidad; no constituyen un paquete reproducible completo."
+    }
+  }
+}
